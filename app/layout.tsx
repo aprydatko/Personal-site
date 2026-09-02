@@ -17,7 +17,24 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: 'Arthur Prydatko',
-  description: 'Personal website.',
+  description:
+    'Fullstack developer building scalable web applications with clean code and thoughtful design.',
+  applicationName: 'Arthur Prydatko Portfolio',
+  authors: [{ name: 'Arthur Prydatko' }],
+  creator: 'Arthur Prydatko',
+  openGraph: {
+    type: 'website',
+    title: 'Arthur Prydatko — Fullstack Developer',
+    description:
+      'Fullstack developer building scalable web applications with clean code and thoughtful design.',
+    siteName: 'Arthur Prydatko Portfolio',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Arthur Prydatko — Fullstack Developer',
+    description:
+      'Fullstack developer building scalable web applications with clean code and thoughtful design.',
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
@@ -27,8 +44,14 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       suppressHydrationWarning
       className={`${manrope.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body id="top" className="flex min-h-full flex-col">
-        <ThemeProvider attribute="data-theme" defaultTheme="light" enableSystem={false}>
+      <body className="flex min-h-full flex-col">
+        <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
+          <a
+            href="#main-content"
+            className="fixed left-4 top-4 z-50 -translate-y-24 bg-foreground px-5 py-3 font-mono text-sm text-background transition-transform focus:translate-y-0"
+          >
+            Skip to main content
+          </a>
           <Header />
           <div className="flex flex-1 flex-col">{children}</div>
           <Footer />

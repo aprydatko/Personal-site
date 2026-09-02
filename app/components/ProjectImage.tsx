@@ -1,17 +1,16 @@
 import { cn } from '@/app/lib/utils';
+import type { ProjectPreview } from '@/app/content/site';
 import Image from 'next/image';
 
-export type ProjectImageVariant = 'planora' | 'nexora' | 'velox';
-
 type ProjectImageProps = {
-  variant: ProjectImageVariant;
-  alt?: string;
+  variant: ProjectPreview;
+  alt: string;
   className?: string;
   sizes?: string;
   priority?: boolean;
 };
 
-const projectImageSources: Record<ProjectImageVariant, string> = {
+const projectImageSources: Record<ProjectPreview, string> = {
   planora: '/sass-platform.png',
   nexora: '/web-site.png',
   velox: '/e-commerse.png',
@@ -19,9 +18,9 @@ const projectImageSources: Record<ProjectImageVariant, string> = {
 
 export const ProjectImage = ({
   variant,
-  alt = '',
+  alt,
   className,
-  sizes = '(min-width: 768px) 33vw, 100vw',
+  sizes = '(min-width: 1536px) 331px, (min-width: 1280px) 21vw, (min-width: 1024px) 25vw, (min-width: 768px) 26vw, 82vw',
   priority = false,
 }: ProjectImageProps) => (
   <Image

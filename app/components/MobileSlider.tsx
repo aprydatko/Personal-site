@@ -4,7 +4,7 @@ import { cn } from '@/app/lib/utils';
 import { Children, type ReactNode } from 'react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
+import { A11y, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 type MobileSliderProps = {
@@ -16,10 +16,15 @@ type MobileSliderProps = {
 export const MobileSlider = ({ children, className, slideClassName }: MobileSliderProps) => (
   <Swiper
     className={cn(
-      '!-mx-6 !w-[calc(100%+3rem)] pb-1 [&_.swiper-pagination]:!relative [&_.swiper-pagination]:!bottom-auto [&_.swiper-pagination]:mt-7 [&_.swiper-pagination-bullet]:!mx-1.5 [&_.swiper-pagination-bullet]:!size-1.5 [&_.swiper-pagination-bullet]:!bg-muted [&_.swiper-pagination-bullet-active]:!bg-foreground md:!hidden',
+      '!-mx-6 !w-[calc(100%+3rem)] pb-1 [&_.swiper-pagination]:!relative [&_.swiper-pagination]:!bottom-auto [&_.swiper-pagination]:mt-7 md:!hidden',
       className
     )}
-    modules={[Pagination]}
+    modules={[A11y, Pagination]}
+    a11y={{
+      containerMessage: 'Featured projects carousel',
+      itemRoleDescriptionMessage: 'project',
+      paginationBulletMessage: 'Show project {{index}}',
+    }}
     pagination={{ clickable: true }}
     slidesOffsetAfter={24}
     slidesOffsetBefore={24}

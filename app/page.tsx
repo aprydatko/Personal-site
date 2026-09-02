@@ -26,9 +26,9 @@ const codeLines = [
 
 export default function Home() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <Container className="relative">
-        <div className="flex flex-col items-start gap-8 2xl:gap-16 overflow-hidden lg:flex-row border-b border-border-subtle py-10 sm:py-20">
+        <div id="about" className="flex flex-col items-start gap-8 2xl:gap-16 overflow-hidden lg:flex-row border-b border-border-subtle py-10 sm:py-20">
           <div className="relative z-10 w-full lg:flex-[11_1_0%]">
             <p className="font-mono text-lg tracking-[0.03em] text-muted">Fullstack Developer</p>
             <h1 className="mt-8 max-w-2xl font-mono text-4xl font-medium leading-16 sm:leading-21 tracking-tight sm:text-6xl">
@@ -38,7 +38,7 @@ export default function Home() {
               <br />
               end to end<span className="text-primary">.</span>
             </h1>
-            <p className="mt-5 max-w-md font-mono font-medium text-lg leading-10 text-muted tracking-wide">
+            <p className="mt-5 max-w-md font-sans text-lg font-medium leading-10 tracking-wide text-muted">
               Crafting scalable web applications with clean code and thoughtful design.
             </p>
             <Button

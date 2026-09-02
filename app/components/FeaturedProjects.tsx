@@ -1,72 +1,42 @@
+import { projects, type Project } from '@/app/content/site';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
-import Link from 'next/link';
 import { Container } from './Container';
 import { MobileSlider } from './MobileSlider';
-import { ProjectImage, type ProjectImageVariant } from './ProjectImage';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card';
+import { ProjectImage } from './ProjectImage';
 
-type Project = {
-  kind: string;
-  name: string;
-  description: string;
-  stack: string;
-  preview: ProjectImageVariant;
-};
-
-const projects: Project[] = [
-  {
-    kind: 'SaaS Platform',
-    name: 'Planora',
-    description: 'Project management platform for distributed teams.',
-    stack: 'Next.js, TypeScript, Tailwind, PostgreSQL',
-    preview: 'planora',
-  },
-  {
-    kind: 'Web Application',
-    name: 'Nexora',
-    description: 'AI-powered analytics platform for business intelligence.',
-    stack: 'Next.js, TypeScript, PostgreSQL, Redis',
-    preview: 'nexora',
-  },
-  {
-    kind: 'E-commerce',
-    name: 'Velox Store',
-    description: 'Modern e-commerce built for speed and conversion.',
-    stack: 'Next.js, Stripe, Tailwind, PostgreSQL',
-    preview: 'velox',
-  },
-];
-
-const ProjectPreview = ({ variant }: { variant: Project['preview'] }) => (
+const ProjectPreview = ({ project }: { project: Project }) => (
   <div
-    className={`relative aspect-[1.42] overflow-hidden rounded-[10px] border border-black/80 bg-[#15151d] px-[5.5%] pt-[5.5%] shadow-[0_12px_28px_rgb(15_15_22_/_14%),inset_0_1px_0_rgb(255_255_255_/_10%)] ${variant === 'nexora' ? 'bg-[radial-gradient(circle_at_30%_110%,#444_0,#111_42%,#050505_100%)]' : variant === 'velox' ? 'bg-[linear-gradient(135deg,#24252a,#111217_48%,#24252a)]' : ''}`}
-    aria-hidden="true"
+    className={`relative aspect-[1.42] overflow-hidden rounded-[10px] border border-black/80 bg-[#15151d] px-[5.5%] pt-[5.5%] shadow-[0_12px_28px_rgb(15_15_22_/_14%),inset_0_1px_0_rgb(255_255_255_/_10%)] ${project.preview === 'nexora' ? 'bg-[radial-gradient(circle_at_30%_110%,#444_0,#111_42%,#050505_100%)]' : project.preview === 'velox' ? 'bg-[linear-gradient(135deg,#24252a,#111217_48%,#24252a)]' : ''}`}
   >
     <div className="relative h-full w-full overflow-hidden rounded-t-[5px] bg-white shadow-[0_0_0_1px_rgb(255_255_255_/_12%)]">
-      <ProjectImage variant={variant} className="rounded-t-[5px]" />
+      <ProjectImage
+        variant={project.preview}
+        alt={`${project.name} interface preview`}
+        className="rounded-t-[5px]"
+      />
     </div>
   </div>
 );
 
 const ProjectCard = ({ project }: { project: Project }) => (
-  <Card className="group flex h-full flex-col overflow-hidden rounded-none border-0 bg-transparent shadow-none">
-    <CardContent className="p-0">
-      <ProjectPreview variant={project.preview} />
-    </CardContent>
-    <CardHeader className="px-0 pb-0 pt-5 md:pt-9">
-      <CardDescription className="font-mono text-md tracking-wide text-muted">
-        {project.kind}
-      </CardDescription>
-      <CardTitle className="pt-1 text-xl md:text-2xl">{project.name}</CardTitle>
-      <p className="max-w-xs pt-2 font-mono font-semibold text-sm leading-6 text-muted-strong md:pt-3 md:leading-7">
+  <article className="flex h-full flex-col overflow-hidden">
+    <div>
+      <ProjectPreview project={project} />
+    </div>
+    <div className="flex flex-col gap-2 pt-5 md:pt-9">
+      <p className="font-mono text-md tracking-wide text-muted">{project.kind}</p>
+      <h3 className="pt-1 font-mono text-xl font-medium leading-none tracking-tight md:text-2xl">
+        {project.name}
+      </h3>
+      <p className="max-w-xs pt-2 font-sans text-sm font-semibold leading-6 text-muted-strong md:pt-3 md:leading-7">
         {project.description}
       </p>
-    </CardHeader>
-    <CardFooter className="mt-auto justify-between gap-4 px-0 pb-0 pt-6 font-mono text-xs leading-5 text-muted md:pt-12">
+    </div>
+    <div className="mt-auto flex items-center justify-between gap-4 pt-6 font-mono text-xs leading-5 text-muted md:pt-12">
       <span className="max-w-[85%]">{project.stack}</span>
-      <ArrowUpRight className="shrink-0 relative top-1 -left-2" strokeWidth={1} />
-    </CardFooter>
-  </Card>
+      <ArrowUpRight className="relative -left-2 top-1 shrink-0" strokeWidth={1} aria-hidden="true" />
+    </div>
+  </article>
 );
 
 export const FeaturedProjects = () => (
@@ -80,12 +50,13 @@ export const FeaturedProjects = () => (
               Featured projects
             </h2>
           </div>
-          <Link
-            href="#projects"
-            className="hidden items-center gap-4 font-mono font-medium text-md transition-opacity hover:opacity-60 sm:flex"
+          <span
+            className="hidden cursor-not-allowed items-center gap-4 font-mono text-md font-medium opacity-60 sm:flex"
+            aria-disabled="true"
+            title="More projects coming soon"
           >
-            See all projects <ArrowRight strokeWidth={1.5} />
-          </Link>
+            See all projects <ArrowRight strokeWidth={1.5} aria-hidden="true" />
+          </span>
         </div>
         <div className="hidden grid-cols-3 gap-8 md:grid xl:gap-16 xl:px-24">
           {projects.map((project) => (
