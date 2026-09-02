@@ -3,8 +3,8 @@ import { Button } from '@/app/components/ui/button';
 import { CodeWindow } from '@/components/CodeWindow';
 import { ArrowDown, MoveRight } from 'lucide-react';
 import { FeaturedProjects } from './components/FeaturedProjects';
-import { Pattern } from './components/Pattern';
 import { LatestArticles } from './components/LatestArticles';
+import { Pattern } from './components/Pattern';
 
 const codeLines = [
   'export default function Home() {',
@@ -38,7 +38,7 @@ export default function Home() {
               <br />
               end to end<span className="text-primary">.</span>
             </h1>
-            <p className="mt-5 max-w-md font-mono text-lg leading-10 text-muted tracking-wide">
+            <p className="mt-5 max-w-md font-mono font-medium text-lg leading-10 text-muted tracking-wide">
               Crafting scalable web applications with clean code and thoughtful design.
             </p>
             <Button
@@ -53,7 +53,7 @@ export default function Home() {
             </Button>
             <div className="mt-16">
               <p className="font-mono text-sm uppercase tracking-widest text-muted">Tech stack</p>
-              <p className="mt-3 max-w-3xl 2xl:max-w-xl font-mono text-md leading-11 tracking-wide text-muted">
+              <p className="mt-3 max-w-3xl 2xl:max-w-xl font-mono font-medium text-md leading-11 tracking-wide text-muted">
                 Next.js　/　TypeScript　/　React　/　Node.js　/　PostgreSQL Redis　/　Docker　/　AWS
               </p>
             </div>

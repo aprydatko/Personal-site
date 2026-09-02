@@ -38,18 +38,21 @@ const articles: Article[] = [
 const ArticleRow = ({ article }: { article: Article }) => (
   <Link
     href={article.href}
-    className="group grid gap-5 border-b border-border-subtle py-8 transition-colors hover:bg-surface-raised/35 sm:grid-cols-[1fr_2.15fr_2.15fr_auto] sm:items-start sm:gap-8 sm:py-9 xl:grid-cols-[1fr_2.15fr_2.15fr_7.5rem] xl:gap-12"
+    className="group grid grid-cols-[1fr_auto] gap-x-4 gap-y-5 border-b border-border-subtle py-7 transition-colors hover:bg-surface-raised/35 sm:gap-x-8 sm:py-9 lg:grid-cols-[1fr_2.15fr_2.15fr_auto] lg:items-start lg:gap-8 xl:grid-cols-[1.2fr_2.15fr_2.15fr_7.5rem] xl:gap-12"
   >
-    <time dateTime={article.date} className="font-mono text-sm leading-6 text-muted">
+    <time
+      dateTime={article.date}
+      className="self-center font-mono text-sm font-medium leading-6 text-muted lg:self-start lg:pt-5 2xl:pl-6"
+    >
       {article.date}
     </time>
-    <h3 className="max-w-xs font-mono text-xl font-medium leading-7 tracking-tight sm:text-[21px] sm:leading-8">
+    <h3 className="col-span-2 max-w-md font-mono text-xl font-medium leading-7 tracking-tight sm:text-[22px] sm:leading-9 lg:col-span-1 lg:max-w-xs">
       {article.title}
     </h3>
-    <p className="max-w-xs font-mono text-sm leading-6 text-muted-strong sm:leading-7">
+    <p className="col-span-2 max-w-lg font-mono text-sm font-semibold leading-6 text-muted-strong sm:leading-7 lg:col-span-1 lg:max-w-xs">
       {article.description}
     </p>
-    <span className="font-mono text-sm leading-6 text-muted sm:pt-0.5 sm:text-right">
+    <span className="col-start-2 row-start-1 self-center font-mono text-sm font-medium leading-6 text-muted text-right lg:col-auto lg:row-auto lg:self-start lg:pt-5 2xl:pr-6">
       {article.readingTime}
     </span>
   </Link>
@@ -67,12 +70,12 @@ export const LatestArticles = () => (
         </div>
         <Link
           href="#articles"
-          className="hidden shrink-0 items-center gap-4 font-mono text-sm font-medium transition-opacity hover:opacity-60 sm:flex sm:text-md"
+          className="hidden shrink-0 items-center gap-4 font-mono text-md font-medium transition-opacity hover:opacity-60 sm:flex sm:text-md"
         >
           Read all articles <ArrowRight strokeWidth={1.5} />
         </Link>
       </div>
-      <div className="mt-7 sm:mt-8 px-24">
+      <div className="mt-7 px-0 sm:mt-3 md:px-6 lg:px-12 xl:px-16 2xl:px-24">
         {articles.map((article) => (
           <ArticleRow key={article.title} article={article} />
         ))}

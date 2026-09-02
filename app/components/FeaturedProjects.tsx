@@ -58,7 +58,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
         {project.kind}
       </CardDescription>
       <CardTitle className="pt-1 text-xl md:text-2xl">{project.name}</CardTitle>
-      <p className="max-w-xs pt-2 font-mono text-sm leading-6 text-muted-strong md:pt-3 md:leading-7">
+      <p className="max-w-xs pt-2 font-mono font-semibold text-sm leading-6 text-muted-strong md:pt-3 md:leading-7">
         {project.description}
       </p>
     </CardHeader>
@@ -72,7 +72,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
 export const FeaturedProjects = () => (
   <section id="projects">
     <Container>
-      <div className="overflow-hidden border-b border-border-subtle py-12 sm:py-20 lg:py-22">
+      <div className="overflow-hidden border-b border-border-subtle py-12 sm:py-20 lg:py-20">
         <div className="mb-8 flex items-center justify-between gap-4 sm:mb-12">
           <div className="flex min-w-0 flex-nowrap items-center gap-5 sm:gap-24">
             <span className="shrink-0 font-mono text-sm text-muted sm:text-lg">01</span>
