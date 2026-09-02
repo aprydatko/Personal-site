@@ -1,26 +1,85 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #111118;
+  --surface: #f7f7f9;
+  --surface-raised: #eeeef2;
+  --surface-sunken: #030304;
+  --border: #d5d5dd;
+  --border-subtle: #e8e8ed;
+  --muted: #656570;
+  --muted-strong: #34343d;
+  --primary: #6948e8;
+  --primary-foreground: #ffffff;
+  --success: #16803c;
+  --success-surface: #eaf8ef;
+  --warning: #b45309;
+  --warning-surface: #fff7e6;
+  --danger: #c53030;
+  --danger-surface: #fff0f0;
+  --info: #2563eb;
+  --info-surface: #eff6ff;
+  --focus: #6948e8;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --background: #ffffff;
+  --foreground: #111118;
+  --surface: #f7f7f9;
+  --surface-raised: #eeeef2;
+  --surface-sunken: #e5e5eb;
+  --border: #d5d5dd;
+  --border-subtle: #e8e8ed;
+  --muted: #656570;
+  --muted-strong: #34343d;
+  --primary: #6948e8;
+  --primary-foreground: #ffffff;
+  --success: #16803c;
+  --success-surface: #eaf8ef;
+  --warning: #b45309;
+  --warning-surface: #fff7e6;
+  --danger: #c53030;
+  --danger-surface: #fff0f0;
+  --info: #2563eb;
+  --info-surface: #eff6ff;
+  --focus: #6948e8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-muted: var(--muted);
+  --color-muted-strong: var(--muted-strong);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-success: var(--success);
+  --color-success-surface: var(--success-surface);
+  --color-warning: var(--warning);
+  --color-warning-surface: var(--warning-surface);
+  --color-danger: var(--danger);
+  --color-danger-surface: var(--danger-surface);
+  --color-info: var(--info);
+  --color-info-surface: var(--info-surface);
+  --color-focus: var(--focus);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
-
+html { color-scheme: light; }
+html[data-theme='dark'] { color-scheme: dark; }
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-manrope), sans-serif;
 }
