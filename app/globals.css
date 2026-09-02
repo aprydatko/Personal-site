@@ -110,5 +110,10 @@ body {
   color: var(--foreground);
   font-family: var(--font-manrope), sans-serif;
 }
-.text-code-keyword { color: #d7839b; }
-.text-code-tag { color: #a8c7e8; }
+
+.text-code-keyword {
+  color: #d7839b;
+}
+.text-code-tag {
+  color: #a8c7e8;
+}
