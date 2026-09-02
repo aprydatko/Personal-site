@@ -4,6 +4,7 @@ import { CodeWindow } from '@/components/CodeWindow';
 import { ArrowDown, MoveRight } from 'lucide-react';
 import { FeaturedProjects } from './components/FeaturedProjects';
 import { Pattern } from './components/Pattern';
+import { LatestArticles } from './components/LatestArticles';
 
 const codeLines = [
   'export default function Home() {',
@@ -78,6 +79,7 @@ export default function Home() {
         </div>
       </Container>
       <FeaturedProjects />
+      <LatestArticles />
     </main>
   );
 }
