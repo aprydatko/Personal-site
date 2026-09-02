@@ -38,7 +38,7 @@ const articles: Article[] = [
 const ArticleRow = ({ article }: { article: Article }) => (
   <Link
     href={article.href}
-    className="group grid grid-cols-[1fr_auto] gap-x-4 gap-y-5 border-b border-border-subtle py-7 transition-colors hover:bg-surface-raised/35 sm:gap-x-8 sm:py-9 lg:grid-cols-[1fr_2.15fr_2.15fr_auto] lg:items-start lg:gap-8 xl:grid-cols-[1.2fr_2.15fr_2.15fr_7.5rem] xl:gap-12"
+    className="group grid grid-cols-[1fr_auto] gap-x-4 gap-y-5 border-b border-border-subtle py-7 transition-colors last:border-b-0 hover:bg-surface-raised/35 sm:gap-x-8 sm:py-9 lg:grid-cols-[1fr_2.15fr_2.15fr_auto] lg:items-start lg:gap-8 xl:grid-cols-[1.2fr_2.15fr_2.15fr_7.5rem] xl:gap-12"
   >
     <time
       dateTime={article.date}

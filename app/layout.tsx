@@ -1,3 +1,4 @@
+import { Footer } from '@/app/components/Footer';
 import { Header } from '@/app/components/Header';
 import { ThemeProvider } from '@/app/components/ThemeProvider';
 import type { Metadata } from 'next';
@@ -26,10 +27,11 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       suppressHydrationWarning
       className={`${manrope.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body id="top" className="flex min-h-full flex-col">
         <ThemeProvider attribute="data-theme" defaultTheme="light" enableSystem={false}>
           <Header />
-          {children}
+          <div className="flex flex-1 flex-col">{children}</div>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
