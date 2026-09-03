@@ -12,5 +12,5 @@ const sizes = {
 };
 
 export const Container = ({ className, size = 'wide', ...props }: ContainerProps) => (
-  <div className={cn('mx-auto w-full px-6 lg:px-12', sizes[size], className)} {...props} />
+  <div className={cn('mx-auto w-full px-4 sm:px-6 lg:px-12', sizes[size], className)} {...props} />
 );

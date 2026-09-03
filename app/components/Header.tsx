@@ -21,9 +21,9 @@ export const Header = () => {
 
   return (
     <header className="border-b border-border-subtle" onKeyDown={handleKeyDown}>
-      <Container className="flex h-24 md:h-44 items-center justify-between">
+      <Container className="flex h-24 md:h-32 items-center justify-between">
         <Link href="/" className="font-mono text-xl font-semibold tracking-tight text-foreground">
-          <span className="mr-3">{'//'}</span>AP SITE
+          <span className="mr-3 text-primary">{'//'}</span>AP SITE
         </Link>
         <nav
           className="hidden items-center gap-6 font-mono text-sm text-muted md:flex lg:gap-10 xl:gap-18"
@@ -47,7 +47,7 @@ export const Header = () => {
               >
                 {label}
               </span>
-            ),
+            )
           )}
           <ThemeToggle />
         </nav>
@@ -92,7 +92,7 @@ export const Header = () => {
                 >
                   {label}
                 </span>
-              ),
+              )
             )}
           </div>
         </nav>

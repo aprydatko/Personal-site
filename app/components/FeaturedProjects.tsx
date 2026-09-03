@@ -24,7 +24,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
       <ProjectPreview project={project} />
     </div>
     <div className="flex flex-col gap-2 pt-5 md:pt-9">
-      <p className="font-mono text-md tracking-wide text-muted">{project.kind}</p>
+      <p className="font-mono text-md tracking-wide text-dark-accent">{project.kind}</p>
       <h3 className="pt-1 font-mono text-xl font-medium leading-none tracking-tight md:text-2xl">
         {project.name}
       </h3>
@@ -45,7 +45,7 @@ export const FeaturedProjects = () => (
       <div className="overflow-hidden border-b border-border-subtle py-12 sm:py-20 lg:py-20">
         <div className="mb-8 flex items-center justify-between gap-4 sm:mb-12">
           <div className="flex min-w-0 flex-nowrap items-center gap-5 sm:gap-24">
-            <span className="shrink-0 font-mono text-sm text-muted sm:text-lg">01</span>
+            <span className="shrink-0 font-mono text-sm text-dark-accent sm:text-lg">01</span>
             <h2 className="whitespace-nowrap font-mono text-2xl font-medium tracking-tight sm:text-3xl">
               Featured projects
             </h2>
@@ -55,7 +55,7 @@ export const FeaturedProjects = () => (
             aria-disabled="true"
             title="More projects coming soon"
           >
-            See all projects <ArrowRight strokeWidth={1.5} aria-hidden="true" />
+            See all projects <ArrowRight className="text-dark-accent" strokeWidth={1.5} aria-hidden="true" />
           </span>
         </div>
         <div className="hidden grid-cols-3 gap-8 md:grid xl:gap-16 xl:px-24">

@@ -21,20 +21,25 @@
   --info: #2563eb;
   --info-surface: #eff6ff;
   --focus: #6948e8;
+  --code-background: #111214;
+  --code-foreground: #e4e4e7;
+  --code-line: #62656e;
+  --code-keyword: #d7839b;
+  --code-tag: #a8c7e8;
 }
 
 [data-theme='dark'] {
   color-scheme: dark;
-  --background: #0d0d0f;
+  --background: #07090c;
   --foreground: #f4f4f5;
-  --surface: #151518;
-  --surface-raised: #202025;
+  --surface: #0e1116;
+  --surface-raised: #151a22;
   --surface-sunken: #060607;
-  --border: #3a3a42;
-  --border-subtle: #28282e;
-  --muted: #9b9ba4;
-  --muted-strong: #d1d1d6;
-  --primary: #8c74f6;
+  --border: #343a47;
+  --border-subtle: #252b35;
+  --muted: #9da3af;
+  --muted-strong: #b9bec8;
+  --primary: #9d8cff;
   --primary-foreground: #ffffff;
   --success: #16803c;
   --success-surface: #eaf8ef;
@@ -45,6 +50,11 @@
   --info: #2563eb;
   --info-surface: #eff6ff;
   --focus: #6948e8;
+  --code-background: #080c10;
+  --code-foreground: #f1f1f2;
+  --code-line: #5c6570;
+  --code-keyword: #c7a6ff;
+  --code-tag: #8fe7ef;
 }
 
 @theme inline {
@@ -68,6 +78,11 @@
   --color-info: var(--info);
   --color-info-surface: var(--info-surface);
   --color-focus: var(--focus);
+  --color-code-background: var(--code-background);
+  --color-code-foreground: var(--code-foreground);
+  --color-code-line: var(--code-line);
+  --color-code-keyword: var(--code-keyword);
+  --color-code-tag: var(--code-tag);
   --font-sans: var(--font-manrope);
   --font-mono: var(--font-jetbrains-mono);
   --container-8xl: 1440px;
@@ -154,9 +169,29 @@ body {
   background: var(--foreground);
 }
 
-.text-code-keyword {
-  color: #d7839b;
+.text-code-keyword { color: var(--code-keyword); }
+.text-code-tag { color: var(--code-tag); }
+.text-code-line { color: var(--code-line); }
+.text-code-foreground { color: var(--code-foreground); }
+.text-hero-label { color: var(--muted); }
+.text-dark-accent { color: var(--muted); }
+[data-theme='dark'] .text-dark-accent { color: var(--primary); }
+[data-theme='dark'] .text-hero-label { color: #9d8cff; }
+.hero-cta {
+  border: 1px solid transparent;
+  background: var(--foreground);
+  color: var(--background);
 }
-.text-code-tag {
-  color: #a8c7e8;
+[data-theme='dark'] .hero-cta {
+  border-color: #9d8cff;
+  background: transparent;
+  color: var(--foreground);
+}
+.hero-cta:hover {
+  border-color: transparent;
+  background: var(--muted-strong);
+}
+[data-theme='dark'] .hero-cta:hover {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
 }

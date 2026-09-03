@@ -27,7 +27,7 @@ export const LatestArticles = () => (
     <Container>
       <div className="flex items-center justify-between gap-6">
         <div className="flex min-w-0 items-center gap-5 sm:gap-24">
-          <span className="shrink-0 font-mono text-sm text-muted sm:text-lg">02</span>
+          <span className="shrink-0 font-mono text-sm text-dark-accent sm:text-lg">02</span>
           <h2 className="whitespace-nowrap font-mono text-2xl font-medium tracking-tight sm:text-3xl">
             Latest articles
           </h2>
@@ -37,7 +37,7 @@ export const LatestArticles = () => (
           aria-disabled="true"
           title="More articles coming soon"
         >
-          Read all articles <ArrowRight strokeWidth={1.5} aria-hidden="true" />
+          Read all articles <ArrowRight className="text-dark-accent" strokeWidth={1.5} aria-hidden="true" />
         </span>
       </div>
       <div className="mt-7 px-0 sm:mt-3 md:px-6 lg:px-12 xl:px-16 2xl:px-24">

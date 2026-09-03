@@ -13,7 +13,7 @@ export const Footer = () => {
           href="/"
           className="w-fit text-lg font-semibold tracking-tight text-foreground transition-opacity hover:opacity-60"
         >
-          <span className="mr-3">{'//'}</span>AP SITE
+          <span className="mr-3 text-dark-accent">{'//'}</span>AP SITE
         </Link>
 
         <p className="text-xs leading-6 text-muted sm:text-sm">
