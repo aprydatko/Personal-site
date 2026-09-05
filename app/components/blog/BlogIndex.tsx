@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { ArrowRight, Search } from 'lucide-react';
+import Link from 'next/link';
 import { blogArticles, blogCategories, type BlogCategory } from '@/app/content/blog';
 import { Button } from '@/app/components/ui/button';
 import { Input } from '@/app/components/ui/input';
@@ -26,7 +27,7 @@ export const BlogIndex = () => {
       <div className="mt-5">
         {visibleArticles.map((article) => <article key={article.title} className="grid gap-5 border-b border-border-subtle py-6 first:pt-4 sm:grid-cols-[11.5rem_1fr_auto] sm:items-center sm:gap-9 sm:py-7 lg:grid-cols-[15rem_1fr_7rem]">
           <ArticlePreview preview={article.preview} />
-          <div><p className="font-mono text-[10px] text-muted">{article.date} <span className="mx-2">•</span> {article.category}</p><h2 className="mt-3 max-w-xl font-mono text-lg font-medium leading-7 tracking-tight sm:text-xl sm:leading-8">{article.title}</h2><p className="mt-2 max-w-lg text-sm leading-6 text-muted">{article.description}</p></div>
+          <div><p className="font-mono text-[10px] text-muted">{article.date} <span className="mx-2">•</span> {article.category}</p><h2 className="mt-3 max-w-xl font-mono text-lg font-medium leading-7 tracking-tight sm:text-xl sm:leading-8"><Link href="/blog/how-i-structure-fullstack-projects" className="transition-colors hover:text-primary">{article.title}</Link></h2><p className="mt-2 max-w-lg text-sm leading-6 text-muted">{article.description}</p></div>
           <div className="flex items-center justify-between gap-4 font-mono text-xs text-muted sm:flex-col sm:items-end sm:gap-6"><span>{article.readingTime}</span><ArrowRight className="size-4 text-foreground" aria-hidden="true" /></div>
         </article>)}
         {visibleArticles.length === 0 && <p className="py-16 text-center font-mono text-sm text-muted">No articles match your search.</p>}
