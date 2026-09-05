@@ -34,7 +34,7 @@ export default function Home() {
         >
           <Pattern className="w-50 h-50 sm:h-72 md:w-125 top-5 right-5 2xl:top-[clamp(2rem,7vh,7rem)] 2xl:right-12 opacity-50" />
           <div className="relative z-10 flex w-full flex-col items-start gap-[clamp(0.75rem,3vh,3rem)] lg:flex-[11_1_0%]">
-            <p className="font-mono text-sm tracking-[0.03em] text-hero-label sm:text-lg">
+            <p className="font-mono text-sm tracking-[0.03em] text-muted sm:text-lg">
               Fullstack Developer
             </p>
             <h1 className="max-w-2xl font-mono font-medium leading-16 sm:leading-18 tracking-tight text-[clamp(1.5rem,9vw,3.5rem)]">
@@ -49,7 +49,7 @@ export default function Home() {
             </p>
             <Button
               href="#projects"
-              className="hero-cta mt-3 inline-flex w-auto items-center gap-5 px-5 py-4 font-mono text-base sm:gap-9 sm:px-7 sm:py-5 sm:text-lg"
+              className="mt-3 inline-flex w-auto items-center gap-5 border border-transparent bg-foreground px-5 py-4 font-mono text-base text-background transition-colors hover:bg-muted-strong sm:gap-9 sm:px-7 sm:py-5 sm:text-lg"
             >
               View my work{' '}
               <MoveRight
@@ -58,7 +58,7 @@ export default function Home() {
               />
             </Button>
             <div className="mt-5 2xl:mt-3">
-              <p className="font-mono text-sm uppercase tracking-widest text-hero-label">
+              <p className="font-mono text-sm uppercase tracking-widest text-muted">
                 Tech stack
               </p>
               <p className="mt-5 2xl:mt-3 max-w-2xl 2xl:max-w-xl font-mono font-medium text-sm md:text-md leading-11 tracking-wide text-muted">
