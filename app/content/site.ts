@@ -25,7 +25,7 @@ export type Article = {
 
 export const navigationItems: NavigationItem[] = [
   { label: 'Blog', href: '/blog' },
-  { label: 'Projects', href: '#projects' },
+  { label: 'Projects', href: '/projects' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
