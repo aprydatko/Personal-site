@@ -56,7 +56,7 @@ export const ProjectsGallery = () => {
       {visibleProjects.map((project) => <article className="project-row" key={project.name}>
         <ProjectVisual type={project.visual} />
         <div className="project-copy"><p>{project.label}</p><h2>{project.name}</h2><p className="project-description">{project.description}</p><ul>{project.stack.map((item) => <li key={item}>{item}</li>)}</ul></div>
-        <Link className="project-link" href="/contact" aria-label={`Discuss ${project.name}`}><ArrowUpRight aria-hidden="true" /></Link>
+        <Link className="project-link" href={project.name === 'Nexora' ? '/projects/nexora' : '/contact'} aria-label={project.name === 'Nexora' ? 'View Nexora case study' : `Discuss ${project.name}`}><ArrowUpRight aria-hidden="true" /></Link>
       </article>)}
     </div>
     <aside className="project-cta"><Rocket aria-hidden="true" /><div><h2>Have a project in mind?</h2><p>Let’s build something great together.</p></div><Link href="/contact">Start a project <ArrowDown aria-hidden="true" /></Link></aside>
