@@ -27,7 +27,7 @@ export const navigationItems: NavigationItem[] = [
   { label: 'Blog', href: '#articles' },
   { label: 'Projects', href: '#projects' },
   { label: 'About', href: '#about' },
-  { label: 'Contact', href: null },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export const footerLinks: FooterLink[] = [
