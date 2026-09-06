@@ -23,7 +23,7 @@ const ArticleRow = ({ article }: { article: Article }) => (
 );
 
 export const LatestArticles = () => (
-  <section id="articles" className="overflow-hidden py-12 sm:py-16 lg:py-20">
+  <section id="articles" data-home-section className="overflow-hidden py-12 sm:py-16 lg:py-20">
     <Container>
       <div className="flex items-center justify-between gap-6">
         <div className="flex min-w-0 items-center gap-5 sm:gap-24">

@@ -40,7 +40,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
 );
 
 export const FeaturedProjects = () => (
-  <section id="projects">
+  <section id="projects" data-home-section>
     <Container>
       <div className="overflow-hidden border-b border-border-subtle py-12 sm:py-20 lg:py-20">
         <div className="mb-8 flex items-center justify-between gap-4 sm:mb-12">

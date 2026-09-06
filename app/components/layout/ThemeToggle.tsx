@@ -5,7 +5,7 @@ import { useTheme } from 'next-themes';
 import { useSyncExternalStore } from 'react';
 
 const toggleClassName =
-  'flex items-center justify-center rounded-full bg-surface text-foreground text-lg transition-colors hover:bg-surface-raised';
+  'flex size-9 shrink-0 items-center justify-center rounded-full bg-surface text-foreground text-lg transition-colors hover:bg-surface-raised';
 const subscribe = () => () => undefined;
 
 export const ThemeToggle = () => {
