@@ -1,6 +1,6 @@
-import { Container } from '@/app/components/Container';
-import { Pattern } from '@/app/components/Pattern';
-import { getProjects } from '@/lib/content/markdown';
+import { Container } from '@/app/components/layout/Container';
+import { Pattern } from '@/app/components/sections/Pattern';
+import { getProjects } from '@/lib/content';
 import { ProjectsGallery } from './_components/ProjectsGallery';
 
 export const metadata = {

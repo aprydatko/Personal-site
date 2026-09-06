@@ -1,8 +1,8 @@
-import { Header } from '@/app/components/Header';
-import { ThemeProvider } from '@/app/components/ThemeProvider';
+import { Header } from '@/app/components/layout/Header';
+import { ThemeProvider } from '@/app/components/layout/ThemeProvider';
 import type { Metadata } from 'next';
 import { JetBrains_Mono, Manrope } from 'next/font/google';
-import { Footer } from './components/Footer';
+import { Footer } from './components/layout/Footer';
 import './globals.css';
 
 const manrope = Manrope({

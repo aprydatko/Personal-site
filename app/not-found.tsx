@@ -1,6 +1,6 @@
 import { Code2, FileText, Mail, UserRound } from 'lucide-react';
 import Link from 'next/link';
-import { Container } from './components/Container';
+import { Container } from './components/layout/Container';
 import { NotFoundCard } from './components/NotFoundCard';
 
 const destinations = [

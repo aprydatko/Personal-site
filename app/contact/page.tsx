@@ -1,5 +1,5 @@
 import { ArrowRight, Clock3, Mail, MapPin, Send } from 'lucide-react';
-import { Container } from '@/app/components/Container';
+import { Container } from '@/app/components/layout/Container';
 import { ContactFaq } from '@/app/components/contact/ContactFaq';
 import { ContactForm } from '@/app/components/contact/ContactForm';
 import { Button } from '@/app/components/ui/button';

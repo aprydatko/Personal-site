@@ -1,6 +1,6 @@
 import { articles, type Article } from '@/app/content/site';
 import { ArrowRight } from 'lucide-react';
-import { Container } from './Container';
+import { Container } from '../layout/Container';
 
 const ArticleRow = ({ article }: { article: Article }) => (
   <article className="grid grid-cols-[1fr_auto] gap-x-4 gap-y-5 border-b border-border-subtle py-7 last:border-b-0 sm:gap-x-8 sm:py-9 lg:grid-cols-[1fr_2.15fr_2.15fr_auto] lg:items-start lg:gap-8 xl:grid-cols-[1.2fr_2.15fr_2.15fr_7.5rem] xl:gap-12">

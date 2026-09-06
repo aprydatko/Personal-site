@@ -1,4 +1,4 @@
-import { Container } from '@/app/components/Container';
+import { Container } from '@/app/components/layout/Container';
 import { AboutDetails } from '@/app/components/about/AboutDetails';
 import { AboutHero } from '@/app/components/about/AboutHero';
 

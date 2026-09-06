@@ -1,6 +1,6 @@
 import { projects, type Project } from '@/app/content/site';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
-import { Container } from './Container';
+import { Container } from '../layout/Container';
 import { MobileSlider } from './MobileSlider';
 import { ProjectImage } from './ProjectImage';
 

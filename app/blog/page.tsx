@@ -1,7 +1,7 @@
-import { BlogIndex } from '@/app/components/blog/BlogIndex';
-import { Container } from '@/app/components/Container';
-import { Pattern } from '@/app/components/Pattern';
-import { getBlogPosts } from '@/lib/content/markdown';
+import { BlogIndex } from './_components/BlogIndex';
+import { Container } from '@/app/components/layout/Container';
+import { Pattern } from '@/app/components/sections/Pattern';
+import { getBlogPosts } from '@/lib/content';
 
 export default async function BlogPage() {
   const posts = await getBlogPosts();

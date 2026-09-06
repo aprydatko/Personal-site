@@ -1,6 +1,6 @@
 'use client';
 
-import { Container } from '@/app/components/Container';
+import { Container } from './Container';
 import { navigationItems } from '@/app/content/site';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';

@@ -1,10 +1,10 @@
-import { Container } from '@/app/components/Container';
+import { Container } from '@/app/components/layout/Container';
 import { Button } from '@/app/components/ui/button';
-import { CodeWindow } from '@/components/CodeWindow';
+import { CodeWindow } from '@/app/components/content/CodeWindow';
 import { MoveRight } from 'lucide-react';
-import { FeaturedProjects } from './components/FeaturedProjects';
-import { LatestArticles } from './components/LatestArticles';
-import { Pattern } from './components/Pattern';
+import { FeaturedProjects } from './components/sections/FeaturedProjects';
+import { LatestArticles } from './components/sections/LatestArticles';
+import { Pattern } from './components/sections/Pattern';
 
 const codeLines = [
   'export default function Home() {',

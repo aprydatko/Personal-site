@@ -1,0 +1,8 @@
+.window :global(.hljs-keyword), .window :global(.hljs-selector-tag), .window :global(.hljs-literal), .window :global(.hljs-built_in) { color: #75c9ec; }
+.window :global(.hljs-string), .window :global(.hljs-meta-string), .window :global(.hljs-template-variable) { color: #c99afa; }
+.window :global(.hljs-title), .window :global(.hljs-title.function_), .window :global(.hljs-function), .window :global(.hljs-property) { color: #75c9ec; }
+.window :global(.hljs-tag), .window :global(.hljs-name), .window :global(.markdown-code-tag) { color: #efbd67; }
+.window :global(.hljs-attr), .window :global(.hljs-attribute) { color: #75c9ec; }
+.window :global(.hljs-number), .window :global(.hljs-symbol), .window :global(.hljs-bullet) { color: #f28c86; }
+.window :global(.hljs-type), .window :global(.hljs-class) :global(.hljs-title) { color: #8ed5c1; }
+.window :global(.hljs-comment), .window :global(.hljs-quote) { color: #737987; font-style: italic; }

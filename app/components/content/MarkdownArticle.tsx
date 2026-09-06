@@ -1,4 +1,4 @@
-import { CodeWindow } from '@/components/CodeWindow';
+import { CodeWindow } from './CodeWindow';
 import hljs from 'highlight.js/lib/common';
 import parse, { type DOMNode, Element } from 'html-react-parser';
 import styles from './MarkdownArticle.module.css';  
