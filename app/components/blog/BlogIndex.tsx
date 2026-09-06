@@ -3,34 +3,37 @@
 import { Button } from '@/app/components/ui/button';
 import { Search } from '@/app/components/ui/search';
 import { Tabs, TabsList, TabsTrigger } from '@/app/components/ui/tabs';
-import { blogArticles, blogCategories, type BlogCategory } from '@/app/content/blog';
+import type { BlogPost } from '@/lib/content/markdown';
 import { ArrowDown, MoveRight } from 'lucide-react';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import { ArticlePreview } from './ArticlePreview';
 
-export const BlogIndex = () => {
-  const [category, setCategory] = useState<BlogCategory>('All');
+type BlogIndexProps = { posts: BlogPost[] };
+
+export const BlogIndex = ({ posts }: BlogIndexProps) => {
+  const categories = ['All', ...new Set(posts.map((post) => post.category))];
+  const [category, setCategory] = useState('All');
   const [query, setQuery] = useState('');
   const visibleArticles = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
-    return blogArticles.filter(
+    return posts.filter(
       (article) =>
         (category === 'All' || article.category === category) &&
         `${article.title} ${article.description}`.toLowerCase().includes(normalizedQuery)
     );
-  }, [category, query]);
+  }, [category, posts, query]);
 
   return (
     <section className="pb-[clamp(3rem,7vw,7rem)]">
       <div className="flex items-end justify-between border-b border-border-subtle">
         <Tabs
           value={category}
-          onValueChange={(value) => setCategory(value as BlogCategory)}
+          onValueChange={setCategory}
           className="min-w-0 overflow-visible"
         >
           <TabsList className="flex-wrap gap-x-[clamp(1.2rem,4vw,4rem)] gap-y-0">
-            {blogCategories.map((item) => (
+            {categories.map((item) => (
               <TabsTrigger key={item} value={item} className="py-5 text-xs sm:text-sm">
                 {item}
               </TabsTrigger>
@@ -50,7 +53,7 @@ export const BlogIndex = () => {
       <div className="mt-10">
         {visibleArticles.map((article) => (
           <article
-            key={article.title}
+            key={article.slug}
             className="grid gap-5 border-b border-border-subtle py-[clamp(2rem,4vw,3rem)] first:pt-4 sm:grid-cols-[10rem_1fr_auto] sm:items-start sm:gap-[clamp(2rem,5vw,3rem)] sm:py-[clamp(2rem,4vw,3rem)] lg:grid-cols-[minmax(10rem,0.62fr)_minmax(19rem,1.25fr)_7rem]"
           >
             <ArticlePreview />
@@ -60,7 +63,7 @@ export const BlogIndex = () => {
               </p>
               <h2 className="mt-4 max-w-md font-mono text-[clamp(1.2rem,2vw,1.65rem)] font-medium leading-normal tracking-wide">
                 <Link
-                  href="/blog/how-i-structure-fullstack-projects"
+                  href={`/blog/${article.slug}`}
                   className="transition-colors hover:text-primary"
                 >
                   {article.title}

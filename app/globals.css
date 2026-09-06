@@ -1,5 +1,27 @@
 @import 'tailwindcss';
 
+.markdown-content {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.markdown-content > * + * { margin-top: 1.5rem; }
+.markdown-content h2, .markdown-content h3 { color: var(--foreground); font-family: var(--font-mono); font-weight: 500; line-height: 1.25; }
+.markdown-content h2 { font-size: 1.75rem; margin-top: 3rem; }
+.markdown-content h3 { font-size: 1.35rem; margin-top: 2.5rem; }
+.markdown-content a { color: var(--primary); text-decoration: underline; }
+.markdown-content ul, .markdown-content ol { padding-left: 1.5rem; }
+.markdown-content ul { list-style: disc; }
+.markdown-content ol { list-style: decimal; }
+.markdown-content blockquote { border-left: 2px solid var(--primary); padding-left: 1rem; color: var(--foreground); }
+.markdown-content pre { overflow-x: auto; border-radius: 0.5rem; background: var(--surface); padding: 1rem; color: var(--foreground); }
+.markdown-content code { font-family: var(--font-mono); font-size: 0.875em; }
+.markdown-content-numbered { counter-reset: markdown-section; }
+.markdown-content-numbered h2 { position: relative; counter-increment: markdown-section; scroll-margin-top: 2rem; }
+.markdown-content-numbered h2::before { content: counter(markdown-section, decimal-leading-zero); position: absolute; right: calc(100% + 2rem); top: 0.35rem; color: var(--muted); font: 0.75rem var(--font-mono); }
+@media (max-width: 640px) { .markdown-content-numbered h2::before { position: static; display: block; margin-bottom: .65rem; } }
+
 :root {
   --background: #f9f9f9;
   --foreground: #101010;

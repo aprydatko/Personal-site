@@ -1,5 +1,6 @@
 import { Container } from '@/app/components/Container';
 import { Pattern } from '@/app/components/Pattern';
+import { getProjects } from '@/lib/content/markdown';
 import { ProjectsGallery } from './_components/ProjectsGallery';
 
 export const metadata = {
@@ -7,7 +8,8 @@ export const metadata = {
   description: 'Selected web products built from idea to production.',
 };
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const projects = await getProjects();
   return (
     <main id="main-content" className="overflow-hidden" tabIndex={-1}>
       <Container className="relative">
@@ -25,7 +27,7 @@ export default function ProjectsPage() {
             Each project solves a real problem.
           </p>
         </section>
-        <ProjectsGallery />
+        <ProjectsGallery projects={projects} />
       </Container>
     </main>
   );

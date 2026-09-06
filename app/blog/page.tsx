@@ -1,8 +1,10 @@
 import { BlogIndex } from '@/app/components/blog/BlogIndex';
 import { Container } from '@/app/components/Container';
 import { Pattern } from '@/app/components/Pattern';
+import { getBlogPosts } from '@/lib/content/markdown';
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const posts = await getBlogPosts();
   return (
     <main id="main-content" tabIndex={-1}>
       <Container className="relative">
@@ -23,7 +25,7 @@ export default function BlogPage() {
             building better products.
           </p>
         </section>
-        <BlogIndex />
+        <BlogIndex posts={posts} />
       </Container>
     </main>
   );
