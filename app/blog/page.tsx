@@ -1,24 +1,24 @@
-import { Container } from '@/app/components/Container';
 import { BlogIndex } from '@/app/components/blog/BlogIndex';
+import { Container } from '@/app/components/Container';
+import { Pattern } from '@/app/components/Pattern';
 
 export default function BlogPage() {
   return (
     <main id="main-content" tabIndex={-1}>
-      <Container>
-        <section className="relative py-14 sm:py-20">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute right-0 top-8 hidden size-64 bg-[radial-gradient(circle,color-mix(in_srgb,var(--muted)_28%,transparent)_1px,transparent_1.2px)] [background-size:16px_16px] opacity-55 [mask-image:radial-gradient(ellipse,black,transparent_68%)] lg:block"
-          />
-          <p className="font-mono text-xs font-semibold text-muted">/ BLOG</p>
-          <h1 className="relative mt-7 max-w-3xl font-mono text-[clamp(2.2rem,4.4vw,3.5rem)] font-medium leading-[1.18] tracking-tight">
+      <Container className="relative">
+        <Pattern className="right-5 top-5 h-50 w-50 opacity-50 sm:h-50 md:w-100 2xl:right-0 2xl:top-[clamp(2rem,7vh,7rem)]" />
+        <section className="relative py-[clamp(2rem,9vh,8rem)] pb-[clamp(2.5rem,6vw,4rem)]">
+          <p className="m-0 font-mono text-sm font-semibold leading-tight tracking-normal">
+            / BLOG
+          </p>
+          <h1 className="relative my-7 mb-5 max-w-3xl font-mono text-[clamp(1.5rem,9vw,3.5rem)] font-semibold leading-tight tracking-tight">
             Thoughts on code,
             <br />
             product and everything
             <br />
             in between<span className="text-primary">.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-sm leading-7 text-muted sm:text-base">
+          <p className="m-0 max-w-xl font-mono text-[clamp(0.85rem,1.6vw,1rem)] font-medium leading-7 tracking-tight text-muted">
             Articles, tutorials and notes about fullstack development, architecture, performance and
             building better products.
           </p>
