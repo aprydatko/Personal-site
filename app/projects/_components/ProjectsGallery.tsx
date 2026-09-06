@@ -1,33 +1,147 @@
 'use client';
 
-import { ArrowDown, ArrowUpRight, ChevronDown, Rocket } from 'lucide-react';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/app/components/ui/select';
+import { Tabs, TabsList, TabsTrigger } from '@/app/components/ui/tabs';
+import { ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
+import { ProjectCta } from '@/app/components/ProjectCta';
 
 type Category = 'All' | 'Web Apps' | 'E-commerce' | 'Dashboard' | 'API' | 'Tools';
 type SortOrder = 'newest' | 'featured';
-type Project = { name: string; category: Exclude<Category, 'All'>; label: string; description: string; stack: string[]; visual: 'analytics' | 'commerce' | 'dashboard' | 'code' | 'snippet' };
+type Project = {
+  name: string;
+  category: Exclude<Category, 'All'>;
+  label: string;
+  description: string;
+  stack: string[];
+};
 const categories: Category[] = ['All', 'Web Apps', 'E-commerce', 'Dashboard', 'API', 'Tools'];
 const projects: Project[] = [
-  { name: 'Nexora', category: 'Web Apps', label: 'WEB APP', description: 'AI-powered analytics platform for business intelligence and reporting.', stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS', 'Chart.js'], visual: 'analytics' },
-  { name: 'Velox Store', category: 'E-commerce', label: 'E-COMMERCE', description: 'Modern e-commerce built for speed and conversion.', stack: ['Next.js', 'Stripe', 'PostgreSQL', 'Tailwind CSS', 'Resend'], visual: 'commerce' },
-  { name: 'Gravit', category: 'Dashboard', label: 'WEB APP', description: 'Project management tool for distributed teams.', stack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Socket.io'], visual: 'dashboard' },
-  { name: 'Auth Service', category: 'API', label: 'API / BACKEND', description: 'Authentication service with JWT, refresh tokens and permissions.', stack: ['Node.js', 'Fastify', 'PostgreSQL', 'Redis', 'JWT'], visual: 'code' },
-  { name: 'Snippet Pro', category: 'Tools', label: 'TOOL', description: 'Developer tool to organize and share code snippets.', stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Prisma', 'PostgreSQL'], visual: 'snippet' },
+  {
+    name: 'Nexora',
+    category: 'Web Apps',
+    label: 'WEB APP',
+    description: 'AI-powered analytics platform for business intelligence and reporting.',
+    stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS', 'Chart.js'],
+  },
+  {
+    name: 'Velox Store',
+    category: 'E-commerce',
+    label: 'E-COMMERCE',
+    description: 'Modern e-commerce built for speed and conversion.',
+    stack: ['Next.js', 'Stripe', 'PostgreSQL', 'Tailwind CSS', 'Resend'],
+  },
+  {
+    name: 'Gravit',
+    category: 'Dashboard',
+    label: 'WEB APP',
+    description: 'Project management tool for distributed teams.',
+    stack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Socket.io'],
+  },
+  {
+    name: 'Auth Service',
+    category: 'API',
+    label: 'API / BACKEND',
+    description: 'Authentication service with JWT, refresh tokens and permissions.',
+    stack: ['Node.js', 'Fastify', 'PostgreSQL', 'Redis', 'JWT'],
+  },
+  {
+    name: 'Snippet Pro',
+    category: 'Tools',
+    label: 'TOOL',
+    description: 'Developer tool to organize and share code snippets.',
+    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Prisma', 'PostgreSQL'],
+  },
 ];
 
-const visual = 'relative min-h-[clamp(10.5rem,19vw,13.2rem)] overflow-hidden rounded-[0.45rem] border border-border font-sans';
-const ProjectVisual = ({ type }: { type: Project['visual'] }) => {
-  if (type === 'analytics') return <div className={`${visual} border-[#25262d] bg-[radial-gradient(circle_at_70%_120%,#1b315c,#0d0e12_53%)] p-4 text-[0.42rem] text-[#eff0f3]`}><span>◉ NEXORA</span><div className="absolute left-4 top-[2.4rem] leading-[2.15] text-[#9a9da8]">Overview<br />Analytics<br />Reports<br />Projects<br />Users</div><div className="absolute left-[5.4rem] right-[1.1rem] top-[2.2rem]"><b>Overview</b><div className="mt-[1.55rem] flex justify-between text-[0.68rem]"><span>$24,980<small className="mt-[0.3rem] block text-[0.38rem] text-[#777a83]">Total revenue</small></span><span>1,248<small className="mt-[0.3rem] block text-[0.38rem] text-[#777a83]">New users</small></span><span>8,642<small className="mt-[0.3rem] block text-[0.38rem] text-[#777a83]">Active users</small></span></div><div className="mt-4 h-14 border-b-2 border-[#3662b4] bg-[repeating-linear-gradient(0deg,transparent_0_16px,#282a32_17px)]" /></div></div>;
-  if (type === 'commerce') return <div className={`${visual} bg-[#fbfbfc] p-4 text-[#101114]`}><b>Velox</b><span className="absolute left-[32%] top-4 text-[0.35rem]">Shop　 Men　 Women　 Accessories</span><div className="absolute top-[38%] text-[clamp(0.8rem,1.4vw,1.1rem)] font-extrabold leading-[0.95]">Performance<br />meets design.<button className="mt-5 block rounded bg-[#e6e6e7] px-[0.6rem] py-[0.45rem] text-[0.38rem] font-bold">Shop collection　→</button></div><div className="absolute -bottom-[2.9rem] right-[1.2rem] rotate-[-20deg] text-[10rem] text-[#c38b22]">◯</div></div>;
-  if (type === 'dashboard') return <div className={`${visual} bg-[#fbfbfc] p-4 text-[0.42rem] text-[#1b1b1d]`}><b>◉ Gravit</b><span className="mt-[2.3rem] block">Overview</span><div className="mt-[0.7rem] flex gap-2">{['24|Projects', '128|Tasks', '68%|Progress'].map((item) => { const [value, label] = item.split('|'); return <b className="w-[29%] rounded-[0.22rem] bg-white p-[0.55rem] text-[0.7rem]" key={value}>{value}<small className="mb-1 block text-[0.35rem] font-medium text-[#888]">{label}</small></b>; })}</div><div className="mt-3 rounded bg-white p-2">Recent projects <i className="mt-2 block text-[#777] not-italic">Mobile app　 In progress</i><i className="mt-2 block text-[#777] not-italic">Design system　 Completed</i></div></div>;
-  if (type === 'code') return <div className={`${visual} grid content-center gap-[0.58rem] border-[#20232c] bg-[#0d0f14] p-4 font-mono text-[0.46rem] leading-[1.2] text-[#d6d8df]`}><span>1　<span className="text-[#d38cad]">import</span> {'{ FastifyInstance }'} <span className="text-[#d38cad]">from</span> {'\'fastify\''}</span><span>3　<span className="text-[#d38cad]">export default async function</span> routes(app)</span><span>4　 app.get('/api/v1/users', async (request, reply) =&gt; {'{'}</span><span>6　　const users = await getUsers()</span><span>8　　return reply.send({'{'} users {'}'})</span><span>9　{'}'})</span></div>;
-  return <div className={`${visual} bg-[#fbfbfc] p-4 text-[#101114]`}><b>Snippet Pro</b><span className="absolute left-[32%] top-4 text-[0.35rem]">Features　 Pricing　 Docs</span><div className="absolute top-[38%] text-[clamp(0.8rem,1.4vw,1.1rem)] font-extrabold leading-[0.95]">Organize your code<br />snippets. Boost your<br />productivity.<button className="mt-5 block rounded bg-[#e6e6e7] px-[0.6rem] py-[0.45rem] text-[0.38rem] font-bold">Get started for free　→</button></div><div className="absolute bottom-4 right-4 rounded bg-white p-[0.6rem] font-mono text-[0.36rem] leading-[1.8] text-[#62636b] shadow-[0_3px_14px_#0000000b]">▣ Create a new snippet<br />　const message = 'hello world'<br />　export default message</div></div>;
-};
+const temporaryVisual =
+  'relative min-h-[clamp(10.5rem,19vw,16rem)] overflow-hidden rounded-[0.45rem] border border-border bg-[radial-gradient(circle_at_70%_20%,color-mix(in_srgb,var(--primary)_18%,transparent),transparent_42%),linear-gradient(135deg,var(--surface-raised),var(--surface))]';
 
 export const ProjectsGallery = () => {
   const [category, setCategory] = useState<Category>('All');
   const [sortOrder, setSortOrder] = useState<SortOrder>('newest');
-  const visibleProjects = useMemo(() => { const filtered = category === 'All' ? projects : projects.filter((project) => project.category === category); return sortOrder === 'newest' ? filtered : [...filtered].reverse(); }, [category, sortOrder]);
-  return <section className="pb-[clamp(3rem,7vw,7rem)]" aria-label="Project directory"><div className="flex items-center justify-between gap-6 border-b border-border-subtle max-sm:block max-sm:border-b-0"><div className="flex items-stretch gap-[clamp(1.2rem,4vw,4.5rem)] overflow-x-auto max-sm:-mx-4 max-sm:border-b max-sm:border-border-subtle max-sm:px-4">{categories.map((item) => <button key={item} type="button" role="tab" aria-selected={category === item} className={`relative flex-none border-0 bg-transparent py-[1.1rem] font-mono text-[0.76rem] font-medium text-muted after:absolute after:bottom-[-1px] after:left-0 after:right-0 after:h-0.5 after:bg-foreground after:content-[''] ${category === item ? 'text-foreground after:opacity-100' : 'after:opacity-0'}`} onClick={() => setCategory(item)}>{item}</button>)}</div><label className="flex flex-none items-center gap-[0.45rem] font-mono text-[0.72rem] text-foreground max-sm:mt-[0.6rem] max-sm:justify-between max-sm:rounded-[0.35rem] max-sm:border max-sm:border-border max-sm:p-[0.7rem_1rem] max-sm:text-[0.75rem]">Sort by:<select className="appearance-none border-0 bg-transparent pr-[1.2rem] font-inherit outline-none" value={sortOrder} onChange={(event) => setSortOrder(event.target.value as SortOrder)} aria-label="Sort projects"><option value="newest">Newest</option><option value="featured">Featured</option></select><ChevronDown className="pointer-events-none -ml-[1.35rem] w-[0.85rem]" aria-hidden="true" /></label></div><div>{visibleProjects.map((project) => <article className="grid grid-cols-[minmax(16rem,0.87fr)_minmax(18rem,1.2fr)_1.5rem] items-center gap-[clamp(1.8rem,5vw,5rem)] border-b border-border-subtle py-[clamp(2rem,4vw,3rem)] max-sm:grid-cols-[minmax(0,1fr)_1.1rem] max-sm:gap-[1.2rem] max-sm:py-[1.65rem]" key={project.name}><ProjectVisual type={project.visual} /><div className="max-sm:col-start-1"><p className="m-0 font-mono text-[0.7rem] font-semibold tracking-[0.04em] text-primary">{project.label}</p><h2 className="m-[0.85rem_0_0] font-mono text-[clamp(1.2rem,2vw,1.65rem)] font-medium leading-none tracking-[-0.05em]">{project.name}</h2><p className="my-[1.05rem] max-w-md text-[0.82rem] font-medium leading-[1.65] text-muted max-sm:my-[0.85rem] max-sm:text-[0.76rem]">{project.description}</p><ul className="m-0 flex list-none flex-wrap gap-x-[1.1rem] gap-y-[0.45rem] p-0 font-mono text-[0.59rem] font-medium leading-[1.4] text-muted max-sm:gap-x-3 max-sm:text-[0.57rem]">{project.stack.map((item) => <li className="after:ml-[1.1rem] after:content-['•'] last:after:hidden max-sm:after:ml-3" key={item}>{item}</li>)}</ul></div><Link className="text-foreground max-sm:col-start-2 max-sm:row-start-1" href={project.name === 'Nexora' ? '/projects/nexora' : '/contact'} aria-label={project.name === 'Nexora' ? 'View Nexora case study' : `Discuss ${project.name}`}><ArrowUpRight className="w-[1.1rem]" aria-hidden="true" /></Link></article>)}</div><aside className="mt-10 grid grid-cols-[auto_1fr_auto] items-center gap-6 rounded-[0.6rem] bg-surface-raised/60 p-[1.35rem_1.7rem] max-sm:grid-cols-[auto_1fr] max-sm:gap-4 max-sm:p-[1.2rem]"><Rocket className="text-primary max-sm:row-span-2" aria-hidden="true" /><div><h2 className="m-0 font-mono text-base font-medium max-sm:text-[0.9rem]">Have a project in mind?</h2><p className="m-[0.45rem_0_0] font-mono text-[0.72rem] text-muted max-sm:text-[0.67rem] max-sm:leading-[1.6]">Let’s build something great together.</p></div><Link className="flex items-center gap-7 rounded-[0.35rem] bg-foreground px-[1.3rem] py-4 font-mono text-[0.7rem] text-background max-sm:col-start-2 max-sm:justify-between max-sm:px-4 max-sm:py-[0.9rem]" href="/contact">Start a project <ArrowDown className="w-[0.95rem] rotate-[-90deg]" aria-hidden="true" /></Link></aside></section>;
+  const visibleProjects = useMemo(() => {
+    const filtered =
+      category === 'All' ? projects : projects.filter((project) => project.category === category);
+    return sortOrder === 'newest' ? filtered : [...filtered].reverse();
+  }, [category, sortOrder]);
+  return (
+    <section className="pb-[clamp(3rem,7vw,7rem)]" aria-label="Project directory">
+      <div className="flex items-center justify-between gap-6 border-b border-border-subtle max-sm:block max-sm:border-b-0">
+        <Tabs
+          value={category}
+          onValueChange={(value) => setCategory(value as Category)}
+          className="min-w-0 flex-1  overflow-visible max-sm:-mx-4 max-sm:border-b max-sm:border-border-subtle max-sm:px-4"
+        >
+          <TabsList className="flex-wrap gap-x-[clamp(1.2rem,4vw,4rem)] gap-y-0 max-sm:gap-x-6">
+            {categories.map((item) => (
+              <TabsTrigger key={item} value={item}>
+                {item}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </Tabs>
+        <div className="flex flex-none items-center gap-[0.45rem] font-mono text-sm text-foreground max-sm:mt-[0.6rem] max-sm:justify-between max-sm:rounded-[0.35rem] max-sm:border max-sm:border-border max-sm:p-[0.7rem_1rem] max-sm:text-[0.75rem]">
+          Sort by:
+          <Select value={sortOrder} onValueChange={(value) => setSortOrder(value as SortOrder)}>
+            <SelectTrigger aria-label="Sort projects">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="newest">Newest</SelectItem>
+              <SelectItem value="featured">Featured</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+      <div>
+        {visibleProjects.map((project) => (
+          <article
+            className="grid grid-cols-[minmax(18rem,.93fr)_minmax(20rem,1.25fr)_1.5rem] items-start gap-[clamp(2rem,3vw,4.5rem)] border-b border-border-subtle py-[clamp(2rem,4vw,9rem)] max-sm:grid-cols-[minmax(0,1fr)_1.1rem] max-sm:gap-[1.2rem] max-sm:py-[1.65rem]"
+            key={project.name}
+          >
+            <div className={temporaryVisual} aria-hidden="true" />
+            <div className="flex py-4 min-h-[clamp(10.5rem,19vw,16rem)] flex-col self-stretch max-sm:col-start-1 max-sm:min-h-0">
+              <p className="m-0 font-mono text-sm font-semibold uppercase tracking-[0.06em] text-primary">
+                {project.label}
+              </p>
+              <h2 className="m-[1.15rem_0_0] font-mono text-[clamp(1.5rem,2.4vw,2rem)] font-medium leading-none tracking-tight">
+                {project.name}
+              </h2>
+              <p className="mt-7 max-w-sm text-md font-medium leading-7 tracking-wide text-muted max-sm:my-[0.85rem] max-sm:text-[0.76rem]">
+                {project.description}
+              </p>
+              <ul className="mt-auto flex list-none flex-wrap gap-x-[1.15rem] gap-y-[0.45rem] p-0 pt-6 font-mono text-[0.62rem] font-medium leading-[1.4] text-muted max-sm:mt-0 max-sm:gap-x-3 max-sm:pt-0 max-sm:text-[0.57rem]">
+                {project.stack.map((item) => (
+                  <li
+                    className="after:ml-[1.1rem] after:content-['•'] last:after:hidden max-sm:after:ml-3"
+                    key={item}
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <Link
+              className="mt-16 text-foreground max-sm:col-start-2 max-sm:row-start-1 max-sm:mt-0"
+              href={project.name === 'Nexora' ? '/projects/nexora' : '/contact'}
+              aria-label={
+                project.name === 'Nexora' ? 'View Nexora case study' : `Discuss ${project.name}`
+              }
+            >
+              <ArrowUpRight className="size-8" aria-hidden="true" />
+            </Link>
+          </article>
+        ))}
+      </div>
+      <ProjectCta />
+    </section>
+  );
 };
