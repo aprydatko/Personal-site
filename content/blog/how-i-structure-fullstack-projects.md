@@ -26,6 +26,22 @@ packages/
   ui/         # reusable interface components
 ```
 
+Here is a small React component written directly in this post:
+
+```tsx
+type MetricProps = {
+  label: string;
+  value: string;
+};
+
+export const Metric = ({ label, value }: MetricProps) => (
+  <div className="rounded-lg border p-4">
+    <span>{label}</span>
+    <strong>{value}</strong>
+  </div>
+);
+```
+
 ## Key takeaway
 
 Choose conventions your team can understand in a minute. You can introduce more layers when the product gives you a concrete reason to do so.

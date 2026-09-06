@@ -5,6 +5,10 @@ import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { remark } from 'remark';
 import html from 'remark-html';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeParse from 'rehype-parse';
+import rehypeStringify from 'rehype-stringify';
+import { unified } from 'unified';
 
 const contentRoot = path.join(process.cwd(), 'content');
 
@@ -80,7 +84,15 @@ const parseMarkdown = async (type: ContentType, filename: string) => {
   const { data, content } = matter(source);
   const headings = [...content.matchAll(/^##\s+(.+)$/gm)].map((match) => match[1].trim());
   let headingIndex = 0;
-  const htmlContent = String(await remark().use(html).process(content)).replace(/<h2>/g, () => {
+  const markdownHtml = String(await remark().use(html).process(content));
+  const highlightedHtml = String(
+    await unified()
+      .use(rehypeParse, { fragment: true })
+      .use(rehypeHighlight, { detect: true })
+      .use(rehypeStringify)
+      .process(markdownHtml)
+  );
+  const htmlContent = highlightedHtml.replace(/<h2>/g, () => {
     const heading = headings[headingIndex++] ?? 'section';
     return `<h2 id="${headingId(heading)}">`;
   });

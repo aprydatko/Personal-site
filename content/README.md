@@ -33,3 +33,15 @@ published: true
 ```
 
 `published: false` keeps a Markdown file out of the site while you are drafting it.
+
+## Code windows
+
+Use normal fenced Markdown code blocks. They are automatically syntax-highlighted and receive a copy button:
+
+````md
+```tsx
+export const Greeting = () => <h1>Hello</h1>;
+```
+````
+
+Common language tags include `html`, `css`, `js`, `jsx`, `ts`, `tsx`, `json`, `bash`, `sql`, and `python`.

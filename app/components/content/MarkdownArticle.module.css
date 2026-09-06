@@ -1,0 +1,79 @@
+.content {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.content > * + * {
+  margin-top: 1.5rem;
+}
+.content h2,
+.content h3 {
+  color: var(--foreground);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  line-height: 1.25;
+}
+.content h2 {
+  font-size: 1.75rem;
+  margin-top: 3rem;
+}
+.content h3 {
+  font-size: 1.35rem;
+  margin-top: 2.5rem;
+}
+.content a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+.content ul,
+.content ol {
+  padding-left: 1.5rem;
+}
+.content ul {
+  list-style: disc;
+}
+.content ol {
+  list-style: decimal;
+}
+.content blockquote {
+  border-left: 2px solid var(--primary);
+  padding-left: 1rem;
+  color: var(--foreground);
+}
+.content > pre {
+  overflow-x: auto;
+  border-radius: 0.5rem;
+  background: var(--surface);
+  padding: 1rem;
+  color: var(--foreground);
+}
+.content code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+.numbered {
+  counter-reset: markdown-section;
+}
+.numbered h2 {
+  position: relative;
+  counter-increment: markdown-section;
+  scroll-margin-top: 2rem;
+}
+.numbered h2::before {
+  content: counter(markdown-section, decimal-leading-zero);
+  position: absolute;
+  right: calc(100% + 2rem);
+  top: 0.35rem;
+  color: var(--muted);
+  font: 0.75rem var(--font-mono);
+}
+
+@media (max-width: 640px) {
+  .numbered h2::before {
+    position: static;
+    display: block;
+    margin-bottom: 0.65rem;
+  }
+}
