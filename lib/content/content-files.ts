@@ -3,11 +3,16 @@ import 'server-only';
 import matter from 'gray-matter';
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
-import type { BaseFrontmatter, ContentType } from './types';
+import type { ContentType } from './types';
 
 const contentRoot = path.join(process.cwd(), 'content');
 
-export type ContentFile = { frontmatter: BaseFrontmatter & Record<string, unknown>; body: string; slug: string; filePath: string };
+export type ContentFile = {
+  frontmatter: Record<string, unknown>;
+  body: string;
+  slug: string;
+  filePath: string;
+};
 
 export const readContentFiles = async (type: ContentType): Promise<ContentFile[]> => {
   const directory = path.join(contentRoot, type);
@@ -18,6 +23,6 @@ export const readContentFiles = async (type: ContentType): Promise<ContentFile[]
     const filePath = path.join(directory, filename);
     const source = await readFile(filePath, 'utf8');
     const { data, content } = matter(source);
-    return { frontmatter: data as BaseFrontmatter & Record<string, unknown>, body: content, slug: filename.replace(/\.md$/, ''), filePath };
+    return { frontmatter: data, body: content, slug: filename.replace(/\.md$/, ''), filePath };
   }));
 };

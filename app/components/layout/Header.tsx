@@ -50,7 +50,7 @@ export const Header = () => {
               >
                 {label}
               </span>
-            )
+            ),
           )}
           <ThemeToggle />
         </nav>
@@ -96,7 +96,7 @@ export const Header = () => {
                 >
                   {label}
                 </span>
-              )
+              ),
             )}
           </div>
         </nav>

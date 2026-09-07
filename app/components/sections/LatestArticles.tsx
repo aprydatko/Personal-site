@@ -1,6 +1,6 @@
 import { articles, type Article } from '@/app/content/site';
-import { ArrowRight } from 'lucide-react';
 import { Container } from '../layout/Container';
+import { HomeSectionHeading } from './HomeSectionHeading';
 
 const ArticleRow = ({ article }: { article: Article }) => (
   <article className="grid grid-cols-[1fr_auto] gap-x-4 gap-y-5 border-b border-border-subtle py-7 last:border-b-0 sm:gap-x-8 sm:py-9 lg:grid-cols-[1fr_2.15fr_2.15fr_auto] lg:items-start lg:gap-8 xl:grid-cols-[1.2fr_2.15fr_2.15fr_7.5rem] xl:gap-12">
@@ -25,21 +25,12 @@ const ArticleRow = ({ article }: { article: Article }) => (
 export const LatestArticles = () => (
   <section id="articles" data-home-section className="overflow-hidden py-12 sm:py-16 lg:py-20">
     <Container>
-      <div className="flex items-center justify-between gap-6">
-        <div className="flex min-w-0 items-center gap-5 sm:gap-24">
-          <span className="shrink-0 font-mono text-sm text-dark-accent sm:text-lg">02</span>
-          <h2 className="whitespace-nowrap font-mono text-2xl font-medium tracking-tight sm:text-3xl">
-            Latest articles
-          </h2>
-        </div>
-        <span
-          className="hidden shrink-0 cursor-not-allowed items-center gap-4 font-mono text-md font-medium opacity-60 sm:flex"
-          aria-disabled="true"
-          title="More articles coming soon"
-        >
-          Read all articles <ArrowRight className="text-dark-accent" strokeWidth={1.5} aria-hidden="true" />
-        </span>
-      </div>
+      <HomeSectionHeading
+        number="02"
+        title="Latest articles"
+        actionLabel="Read all articles"
+        actionTitle="More articles coming soon"
+      />
       <div className="mt-7 px-0 sm:mt-3 md:px-6 lg:px-12 xl:px-16 2xl:px-24">
         {articles.map((article) => (
           <ArticleRow key={article.title} article={article} />

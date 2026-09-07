@@ -44,8 +44,12 @@ export const InteractivePattern = ({ className, ...props }: InteractivePatternPr
         const strength = pointer ? Math.max(0, 1 - distance / 155) : 0;
         const angle = Math.atan2(distanceY, distanceX);
         const ripple = Math.sin(time * 0.006 + dot.phase) * strength * 3;
-        const targetX = strength ? Math.cos(angle) * strength * 16 + Math.cos(angle + Math.PI / 2) * ripple : 0;
-        const targetY = strength ? Math.sin(angle) * strength * 16 + Math.sin(angle + Math.PI / 2) * ripple : 0;
+        const targetX = strength
+          ? Math.cos(angle) * strength * 16 + Math.cos(angle + Math.PI / 2) * ripple
+          : 0;
+        const targetY = strength
+          ? Math.sin(angle) * strength * 16 + Math.sin(angle + Math.PI / 2) * ripple
+          : 0;
         const targetScale = 1 + strength * 1.15;
         const targetOpacity = 0.5 + strength * 0.5;
 
@@ -61,9 +65,9 @@ export const InteractivePattern = ({ className, ...props }: InteractivePatternPr
           node.setAttribute('opacity', String(state.opacity));
         }
 
-        hasEnergy ||= Math.abs(state.x) > 0.05 || Math.abs(state.y) > 0.05 || Math.abs(state.scale - 1) > 0.01;
+        hasEnergy ||=
+          Math.abs(state.x) > 0.05 || Math.abs(state.y) > 0.05 || Math.abs(state.scale - 1) > 0.01;
       });
-
 
       if (pointer || hasEnergy) frame = window.requestAnimationFrame(animate);
       else running = false;
@@ -78,7 +82,11 @@ export const InteractivePattern = ({ className, ...props }: InteractivePatternPr
     const handlePointerMove = (event: PointerEvent) => {
       const bounds = patternRef.current?.getBoundingClientRect();
       if (!bounds) return;
-      const isNearPattern = event.clientX >= bounds.left - 120 && event.clientX <= bounds.right + 120 && event.clientY >= bounds.top - 120 && event.clientY <= bounds.bottom + 120;
+      const isNearPattern =
+        event.clientX >= bounds.left - 120 &&
+        event.clientX <= bounds.right + 120 &&
+        event.clientY >= bounds.top - 120 &&
+        event.clientY <= bounds.bottom + 120;
       pointer = isNearPattern ? { x: event.clientX, y: event.clientY } : null;
       startAnimation();
     };
@@ -101,7 +109,9 @@ export const InteractivePattern = ({ className, ...props }: InteractivePatternPr
     >
       {dots.map((dot, index) => (
         <circle
-          ref={(node) => { dotRefs.current[index] = node; }}
+          ref={(node) => {
+            dotRefs.current[index] = node;
+          }}
           cx={dot.x}
           cy={dot.y}
           fill="currentColor"

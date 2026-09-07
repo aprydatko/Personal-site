@@ -1,6 +1,7 @@
 import { projects, type Project } from '@/app/content/site';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { Container } from '../layout/Container';
+import { HomeSectionHeading } from './HomeSectionHeading';
 import { MobileSlider } from './MobileSlider';
 import { ProjectImage } from './ProjectImage';
 
@@ -34,7 +35,11 @@ const ProjectCard = ({ project }: { project: Project }) => (
     </div>
     <div className="mt-auto flex items-center justify-between gap-4 pt-6 font-mono text-xs leading-5 text-muted md:pt-12">
       <span className="max-w-[85%]">{project.stack}</span>
-      <ArrowUpRight className="relative -left-2 top-1 shrink-0" strokeWidth={1} aria-hidden="true" />
+      <ArrowUpRight
+        className="relative -left-2 top-1 shrink-0"
+        strokeWidth={1}
+        aria-hidden="true"
+      />
     </div>
   </article>
 );
@@ -43,21 +48,13 @@ export const FeaturedProjects = () => (
   <section id="projects" data-home-section>
     <Container>
       <div className="overflow-hidden border-b border-border-subtle py-12 sm:py-20 lg:py-20">
-        <div className="mb-8 flex items-center justify-between gap-4 sm:mb-12">
-          <div className="flex min-w-0 flex-nowrap items-center gap-5 sm:gap-24">
-            <span className="shrink-0 font-mono text-sm text-dark-accent sm:text-lg">01</span>
-            <h2 className="whitespace-nowrap font-mono text-2xl font-medium tracking-tight sm:text-3xl">
-              Featured projects
-            </h2>
-          </div>
-          <span
-            className="hidden cursor-not-allowed items-center gap-4 font-mono text-md font-medium opacity-60 sm:flex"
-            aria-disabled="true"
-            title="More projects coming soon"
-          >
-            See all projects <ArrowRight className="text-dark-accent" strokeWidth={1.5} aria-hidden="true" />
-          </span>
-        </div>
+        <HomeSectionHeading
+          number="01"
+          title="Featured projects"
+          actionLabel="See all projects"
+          actionTitle="More projects coming soon"
+          className="mb-8 sm:mb-12"
+        />
         <div className="hidden grid-cols-3 gap-8 md:grid xl:gap-16 xl:px-24">
           {projects.map((project) => (
             <ProjectCard key={project.name} project={project} />

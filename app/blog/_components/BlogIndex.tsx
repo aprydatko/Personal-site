@@ -6,7 +6,7 @@ import { Tabs, TabsList, TabsTrigger } from '@/app/components/ui/tabs';
 import type { BlogPost } from '@/lib/content';
 import { ArrowDown } from 'lucide-react';
 import { useMemo, useState } from 'react';
-import { BlogArticleRow } from '@/app/blog/_components/BlogArticleRow';
+import { BlogArticleRow } from './BlogArticleRow';
 
 type BlogIndexProps = { posts: BlogPost[] };
 
@@ -19,18 +19,14 @@ export const BlogIndex = ({ posts }: BlogIndexProps) => {
     return posts.filter(
       (article) =>
         (category === 'All' || article.category === category) &&
-        `${article.title} ${article.description}`.toLowerCase().includes(normalizedQuery)
+        `${article.title} ${article.description}`.toLowerCase().includes(normalizedQuery),
     );
   }, [category, posts, query]);
 
   return (
     <section className="pb-[clamp(3rem,7vw,7rem)]">
       <div className="flex items-end justify-between border-b border-border-subtle">
-        <Tabs
-          value={category}
-          onValueChange={setCategory}
-          className="min-w-0 overflow-visible"
-        >
+        <Tabs value={category} onValueChange={setCategory} className="min-w-0 overflow-visible">
           <TabsList className="flex-wrap gap-x-[clamp(1.2rem,4vw,4rem)] gap-y-0">
             {categories.map((item) => (
               <TabsTrigger key={item} value={item} className="py-5 text-xs sm:text-sm">
@@ -50,7 +46,9 @@ export const BlogIndex = ({ posts }: BlogIndexProps) => {
         </div>
       </div>
       <div className="mt-10">
-        {visibleArticles.map((article) => <BlogArticleRow key={article.slug} article={article} />)}
+        {visibleArticles.map((article) => (
+          <BlogArticleRow key={article.slug} article={article} />
+        ))}
         {visibleArticles.length === 0 && (
           <p className="py-16 text-center font-mono text-sm text-muted">
             No articles match your search.

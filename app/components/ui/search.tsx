@@ -10,7 +10,10 @@ export const Search = ({ className, ...props }: SearchProps) => (
   <div className="flex items-center gap-2">
     <Input
       type="search"
-      className={cn('h-10 min-w-0 flex-1 border-border bg-transparent text-xs focus-visible:outline-none', className)}
+      className={cn(
+        'h-10 min-w-0 flex-1 border-border bg-transparent text-xs focus-visible:outline-none',
+        className,
+      )}
       {...props}
     />
     <Button type="button" variant="ghost" className="size-10 shrink-0 p-0" aria-label="Search">

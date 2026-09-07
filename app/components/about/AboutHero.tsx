@@ -1,16 +1,7 @@
-'use client';
-
 import { Button } from '@/app/components/ui/button';
-import {
-  ArrowDownToLine,
-  CalendarDays,
-  Code2,
-  FolderOpen,
-  Users,
-} from 'lucide-react';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import { ContactDetails } from '@/app/components/contact/ContactDetails';
+import { ArrowDownToLine, CalendarDays, Code2, FolderOpen, Users } from 'lucide-react';
+import Image from 'next/image';
 
 const achievements = [
   { value: '6+', label: 'Years of experience', icon: CalendarDays },
@@ -19,11 +10,8 @@ const achievements = [
   { value: '∞', label: 'Passion for code', icon: Code2 },
 ];
 
-export const AboutHero = () => {
-  const router = useRouter();
-
-  return (
-    <>
+export const AboutHero = () => (
+  <>
     <section className="relative grid gap-12 py-14 sm:grid-cols-[1.1fr_0.8fr] sm:items-start sm:gap-8 sm:py-20 lg:gap-18 lg:py-24">
       <div className="relative z-10">
         <p className="font-mono text-lg tracking-wide">ABOUT ME</p>
@@ -37,9 +25,8 @@ export const AboutHero = () => {
         </p>
         <ContactDetails className="mt-12" />
         <Button
+          href="/arthur-prydatko-cv.pdf"
           className="mt-12 gap-6 text-md w-fit bg-surface-sunken px-8 py-5 text-primary-foreground tracking-wide hover:bg-muted-strong"
-          type="button"
-          onClick={() => router.push('/arthur-prydatko-cv.pdf')}
         >
           Download CV <ArrowDownToLine size={16} data-icon="inline-end" aria-hidden="true" />
         </Button>
@@ -50,7 +37,7 @@ export const AboutHero = () => {
             src="/about-portrait.png"
             alt="Arthur Prydatko"
             fill
-            priority
+            loading="eager"
             sizes="(min-width: 1024px) 42vw, 100vw"
             className="object-cover object-[60%_center]"
           />
@@ -79,6 +66,5 @@ export const AboutHero = () => {
         </div>
       ))}
     </section>
-    </>
-  );
-};
+  </>
+);

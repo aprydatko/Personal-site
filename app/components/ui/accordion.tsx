@@ -28,7 +28,7 @@ export const AccordionTrigger = ({
       data-slot="accordion-trigger"
       className={cn(
         'group/accordion-trigger flex flex-1 items-center justify-between gap-6 py-7 text-left font-mono text-base font-medium text-foreground outline-none transition-colors hover:text-primary focus-visible:text-primary disabled:pointer-events-none disabled:opacity-50 sm:py-8',
-        className
+        className,
       )}
       {...props}
     >
@@ -56,7 +56,7 @@ export const AccordionContent = ({
     <div
       className={cn(
         'h-(--accordion-panel-height) max-w-150 font-medium pb-6 font-sans text-sm leading-6 text-muted data-ending-style:h-0 data-starting-style:h-0',
-        className
+        className,
       )}
     >
       {children}

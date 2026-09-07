@@ -17,7 +17,7 @@ export const MobileSlider = ({ children, className, slideClassName }: MobileSlid
   <Swiper
     className={cn(
       '!-mx-6 !w-[calc(100%+3rem)] pb-1 [&_.swiper-pagination]:!relative [&_.swiper-pagination]:!bottom-auto [&_.swiper-pagination]:mt-7 md:!hidden',
-      className
+      className,
     )}
     modules={[A11y, Pagination]}
     a11y={{

@@ -2,17 +2,12 @@ import { AuthorBadge } from '@/app/components/content/AuthorBadge';
 import { BlogHeroCodeWindow } from '@/app/components/content/BlogHeroCodeWindow';
 import { MarkdownArticle } from '@/app/components/content/MarkdownArticle';
 import { Container } from '@/app/components/layout/Container';
-import { parseDate } from '@/app/lib/date';
 import type { BlogPost } from '@/lib/content';
+import { getHeadingId } from '@/lib/content/heading-id';
+import { parseDate } from '@/lib/date';
 import { ArticlePagination } from './ArticlePagination';
 import { ArrowLeft, LinkIcon } from 'lucide-react';
 import Link from 'next/link';
-
-const headingHref = (heading: string) =>
-  `#${heading
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '')}`;
 
 const TwitterIcon = () => (
   <svg
@@ -65,7 +60,7 @@ const BlogPostAside = ({ headings }: Pick<BlogPost, 'headings'>) => (
     <ol className="mt-8 space-y-5 font-mono text-base font-medium leading-none text-muted-strong">
       {headings.map((heading, index) => (
         <li key={heading}>
-          <a className="transition-colors hover:text-primary" href={headingHref(heading)}>
+          <a className="transition-colors hover:text-primary" href={`#${getHeadingId(heading)}`}>
             {index + 1}. {heading}
           </a>
         </li>

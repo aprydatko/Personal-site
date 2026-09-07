@@ -2,8 +2,7 @@ import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'reac
 import { cn } from '@/app/lib/utils';
 
 type ButtonProps = (
-  | ButtonHTMLAttributes<HTMLButtonElement>
-  | AnchorHTMLAttributes<HTMLAnchorElement>
+  ButtonHTMLAttributes<HTMLButtonElement> | AnchorHTMLAttributes<HTMLAnchorElement>
 ) & { children: ReactNode; href?: string; variant?: 'default' | 'outline' | 'ghost' };
 const variants = {
   default: 'bg-foreground text-background hover:bg-muted-strong',

@@ -2,11 +2,10 @@ import 'server-only';
 
 import { cache } from 'react';
 import { readContentFiles } from './content-files';
+import { sortByNewest } from './content-order';
 import { assertString, optionalString } from './frontmatter';
 import { renderMarkdown } from './markdown-renderer';
 import type { BlogPost } from './types';
-
-const sortByNewest = <T extends { date: string }>(items: T[]) => items.toSorted((first, second) => Date.parse(second.date) - Date.parse(first.date));
 
 export const getBlogPosts = cache(async (): Promise<BlogPost[]> => {
   const files = await readContentFiles('blog');

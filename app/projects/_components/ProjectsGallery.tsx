@@ -25,7 +25,7 @@ export const ProjectsGallery = ({ projects }: ProjectsGalleryProps) => {
       category === 'All' ? projects : projects.filter((project) => project.category === category);
     return sortOrder === 'newest'
       ? filtered
-      : [...filtered].toSorted((first, second) => Number(second.featured) - Number(first.featured));
+      : filtered.toSorted((first, second) => Number(second.featured) - Number(first.featured));
   }, [category, projects, sortOrder]);
   return (
     <section className="pb-[clamp(3rem,7vw,7rem)]" aria-label="Project directory">
