@@ -8,7 +8,15 @@ export type BaseFrontmatter = {
   featured?: boolean;
 };
 
-export type BlogPost = BaseFrontmatter & { slug: string; category: string; readingTime: string; headings: string[]; html: string };
+export type BlogPost = BaseFrontmatter & {
+  slug: string;
+  category: string;
+  readingTime: string;
+  heroCode?: string;
+  heroCodeFileName?: string;
+  headings: string[];
+  html: string;
+};
 
 export type Project = BaseFrontmatter & {
   slug: string;

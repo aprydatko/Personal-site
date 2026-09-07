@@ -1,22 +1,24 @@
 .content {
   color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.9;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 0.045rem;
 }
 
 .content > * + * {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 .content h2,
 .content h3 {
   color: var(--foreground);
   font-family: var(--font-mono);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.25;
 }
 .content h2 {
-  font-size: 1.75rem;
-  margin-top: 3rem;
+  font-size: 1.25rem;
+  margin-top: 2rem;
 }
 .content h3 {
   font-size: 1.35rem;
@@ -37,9 +39,22 @@
   list-style: decimal;
 }
 .content blockquote {
-  border-left: 2px solid var(--primary);
-  padding-left: 1rem;
+  margin-top: 1.25rem;
+  margin-inline: 0;
+  border-left: 2px solid color-mix(in srgb, var(--primary) 45%, transparent);
+  border-radius: 0.375rem;
+  background: var(--surface);
+  padding: 0.65rem 1.85rem;
+  color: var(--muted-strong);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.8;
+  letter-spacing: -0.01em;
+}
+.content blockquote strong {
   color: var(--foreground);
+  font-weight: 700;
 }
 .content > pre {
   overflow-x: auto;
@@ -64,10 +79,9 @@
 .numbered h2::before {
   content: counter(markdown-section, decimal-leading-zero);
   position: absolute;
-  right: calc(100% + 2rem);
-  top: 0.35rem;
+  right: calc(100% + 3.7rem);
   color: var(--muted);
-  font: 0.75rem var(--font-mono);
+  font: 1.15rem var(--font-mono);
 }
 
 @media (max-width: 640px) {

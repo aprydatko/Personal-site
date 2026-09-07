@@ -1,0 +1,128 @@
+.codeBlock {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: var(--surface);
+  color: var(--muted-strong);
+  font-family: var(--font-mono);
+}
+
+.fileName {
+  margin: 0;
+  padding: 0.9rem 3.75rem 0.15rem 2rem;
+  color: var(--muted);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.codeArea {
+  overflow-x: auto;
+  margin: 0;
+  padding: 0.55rem 4.5rem 1rem 2rem;
+  font: 500 0.8125rem/1.75 var(--font-mono);
+}
+
+.line {
+  display: grid;
+  grid-template-columns: 1rem minmax(0, 1fr);
+  align-items: baseline;
+  column-gap: 0.625rem;
+  min-width: max-content;
+}
+
+.lineNumber {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  text-align: left;
+  user-select: none;
+}
+
+.line code {
+  min-width: max-content;
+}
+
+.copyButton {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 0;
+  border-radius: 0.25rem;
+  background: transparent;
+  padding: 0.35rem;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.copyButton:hover,
+.copyButton:focus-visible {
+  background: var(--surface-raised);
+  color: var(--foreground);
+  outline: none;
+}
+
+.copyButton svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.copyStatus {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.singleLine .codeArea {
+  padding-block: 1.05rem;
+}
+
+.singleLine .line {
+  display: block;
+}
+
+.codeBlock :global(.hljs-keyword),
+.codeBlock :global(.hljs-selector-tag),
+.codeBlock :global(.hljs-literal),
+.codeBlock :global(.hljs-built_in),
+.codeBlock :global(.hljs-title),
+.codeBlock :global(.hljs-title.function_),
+.codeBlock :global(.hljs-function),
+.codeBlock :global(.hljs-property),
+.codeBlock :global(.hljs-attr),
+.codeBlock :global(.hljs-attribute) {
+  color: #4b70bc;
+}
+
+.codeBlock :global(.hljs-string),
+.codeBlock :global(.hljs-meta-string),
+.codeBlock :global(.hljs-template-variable) {
+  color: #398666;
+}
+
+.codeBlock :global(.hljs-number),
+.codeBlock :global(.hljs-symbol),
+.codeBlock :global(.hljs-bullet) {
+  color: #a75b50;
+}
+
+.codeBlock :global(.hljs-comment) {
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .fileName {
+    padding-left: 1.25rem;
+  }
+
+  .codeArea {
+    padding-inline: 1.25rem 3.75rem;
+  }
+}

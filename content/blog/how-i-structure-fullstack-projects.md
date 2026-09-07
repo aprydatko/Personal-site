@@ -1,47 +1,55 @@
 ---
-title: How I structure fullstack projects
-description: A practical approach to building scalable applications with Next.js, Node.js, and PostgreSQL.
-date: "2024-05-12"
+title: How I structure Fullstack projects in 2024
+description: A practical approach to building scalable fullstack applications with Next.js, Node.js, and PostgreSQL.
+date: '2024-05-12'
 category: Architecture
 readingTime: 8 min read
 featured: true
+heroCodeFileName: project-structure.ts
+heroCode: |-
+  /apps
+  ├── /web                Next.js App Router
+  └── /api                Node.js (Fastify)
+
+  /packages
+  ├── /config             Shared configs
+  ├── /db                 Prisma schema & migrations
+  ├── /ui                 Shared UI components
+  └── /utils              Shared utils and helpers
+
+  /infra
+  ├── /docker             Dockerfiles
+  └── /scripts            DevOps & automation
+
+  README.md
 ---
 
 ## The big picture
 
-I start with a small, clear boundary between the web application, API, and database. That makes it easy to ship early without making future changes painful.
+Over the years, I’ve tried many ways to structure fullstack projects. Some were too complicated, others didn’t scale well. This is the approach that works best for me in 2024.
 
-> Simplicity at the start. Flexibility as you grow.
+> Simplicity at the start.<br>
+> **Flexibility as you grow.**
 
 ## Project structure
 
-Use a structure that makes ownership obvious:
+I use a monorepo with pnpm and Turborepo. It keeps everything in one place, makes sharing code easy, and improves DX.
 
-```text
-apps/
-  web/        # Next.js application
-  api/        # API service
-packages/
-  db/         # database schema and queries
-  ui/         # reusable interface components
+```bash
+pnpm create turbo@latest my-app
 ```
 
-Here is a small React component written directly in this post:
+The structure above is my default blueprint for most projects.
 
-```tsx
-type MetricProps = {
-  label: string;
-  value: string;
-};
+## Database layer
 
-export const Metric = ({ label, value }: MetricProps) => (
-  <div className="rounded-lg border p-4">
-    <span>{label}</span>
-    <strong>{value}</strong>
-  </div>
-);
+I use PostgreSQL with Prisma ORM. It provides type safety, great migrations, and an excellent developer experience.
+
+```prisma
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
 ```
 
-## Key takeaway
-
-Choose conventions your team can understand in a minute. You can introduce more layers when the product gives you a concrete reason to do so.
+Keep your schema simple and your relations explicit.

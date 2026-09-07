@@ -2,7 +2,7 @@ import 'server-only';
 
 import { cache } from 'react';
 import { readContentFiles } from './content-files';
-import { assertString } from './frontmatter';
+import { assertString, optionalString } from './frontmatter';
 import { renderMarkdown } from './markdown-renderer';
 import type { BlogPost } from './types';
 
@@ -18,6 +18,8 @@ export const getBlogPosts = cache(async (): Promise<BlogPost[]> => {
     readingTime: assertString(frontmatter.readingTime, 'readingTime', filePath),
     published: frontmatter.published !== false,
     featured: frontmatter.featured === true,
+    heroCode: optionalString(frontmatter.heroCode),
+    heroCodeFileName: optionalString(frontmatter.heroCodeFileName),
     slug,
     ...(await renderMarkdown(body)),
   })));

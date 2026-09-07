@@ -13,7 +13,12 @@ export const generateMetadata = async ({ params }: BlogPostPageProps): Promise<M
 };
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = await getBlogPost((await params).slug);
+  const { slug } = await params;
+  const [post, posts] = await Promise.all([getBlogPost(slug), getBlogPosts()]);
   if (!post) notFound();
-  return <BlogPostDetail post={post} />;
+  const postIndex = posts.findIndex((item) => item.slug === post.slug);
+  const previousPost = posts[postIndex + 1];
+  const nextPost = posts[postIndex - 1];
+
+  return <BlogPostDetail post={post} previousPost={previousPost} nextPost={nextPost} />;
 }

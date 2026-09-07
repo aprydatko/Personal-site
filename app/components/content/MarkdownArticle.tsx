@@ -1,4 +1,4 @@
-import { CodeWindow } from './CodeWindow';
+import { BlogCodeBlock } from './BlogCodeBlock';
 import hljs from 'highlight.js/lib/common';
 import parse, { type DOMNode, Element } from 'html-react-parser';
 import styles from './MarkdownArticle.module.css';  
@@ -43,15 +43,7 @@ export const MarkdownArticle = ({ html, numbered = false }: MarkdownArticleProps
         const source = codeText(code);
         const codeLines = source.replace(/\n$/, '').split('\n');
 
-        return (
-          <CodeWindow
-            code={source}
-            highlightedLines={codeLines.map((line) => highlightLine(line, language))}
-            language={language}
-            fileName={language === 'text' ? 'code' : `${language} snippet`}
-            className="my-6"
-          />
-        );
+        return <BlogCodeBlock code={source} highlightedLines={codeLines.map((line) => highlightLine(line, language))} language={language} />;
       },
     })}
   </div>
