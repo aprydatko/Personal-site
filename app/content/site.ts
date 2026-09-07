@@ -30,11 +30,11 @@ export const navigationItems: NavigationItem[] = [
   { label: 'Contact', href: '/contact' },
 ];
 
+export const contactEmail = 'artyrpridatko@gmail.com';
 export const footerLinks: FooterLink[] = [
-  { label: 'GitHub', href: null },
-  { label: 'LinkedIn', href: null },
-  { label: 'X (Twitter)', href: null },
-  { label: 'Email', href: null },
+  { label: 'Projects', href: '/projects' },
+  { label: 'About', href: '/about' },
+  { label: 'Email', href: `mailto:${contactEmail}` },
 ];
 
 export const projects: Project[] = [

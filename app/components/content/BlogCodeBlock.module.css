@@ -43,6 +43,8 @@
 }
 
 .copyButton {
+  min-width: 44px;
+  min-height: 44px;
   position: absolute;
   top: 0.75rem;
   right: 1rem;

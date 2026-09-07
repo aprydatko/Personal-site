@@ -5,25 +5,25 @@ import { NotFoundCard } from './components/NotFoundCard';
 
 const destinations = [
   {
-    href: '/#articles',
+    href: '/blog',
     icon: FileText,
     label: 'Blog',
     description: 'Thoughts, tutorials and articles.',
   },
   {
-    href: '/#projects',
+    href: '/projects',
     icon: Code2,
     label: 'Projects',
     description: "Things I've built and shipped.",
   },
   {
-    href: '/#about',
+    href: '/about',
     icon: UserRound,
     label: 'About',
     description: 'More about me and what I do.',
   },
   {
-    href: '/#contact',
+    href: '/contact',
     icon: Mail,
     label: 'Contact',
     description: 'Get in touch or say hello.',
@@ -42,7 +42,7 @@ export default function NotFound() {
           <p className="font-mono text-[clamp(7rem,25vw,13rem)] font-light leading-none tracking-[-0.12em] text-foreground sm:tracking-[-0.15em]">
             4<span className="text-primary">0</span>4
           </p>
-          <h1 className="mt-8 font-mono text-[clamp(1.45rem,3vw,2rem)] font-medium tracking-tight">
+          <h1 className="mt-8 font-sans text-[clamp(1.45rem,3vw,2rem)] font-medium tracking-tight">
             Page not found<span className="text-primary">.</span>
           </h1>
           <p className="mt-6 max-w-md font-mono text-xs leading-6 text-muted sm:text-sm">
@@ -77,7 +77,7 @@ export default function NotFound() {
         <section className="pb-20 pt-7 sm:pb-28 sm:pt-8" aria-labelledby="not-found-links-title">
           <h2
             id="not-found-links-title"
-            className="font-mono text-sm font-medium tracking-tight sm:text-base"
+            className="font-sans text-sm font-medium tracking-tight sm:text-base"
           >
             Maybe you were looking for
           </h2>

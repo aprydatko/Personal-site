@@ -8,7 +8,7 @@ export type ContactDetail = {
 
 const defaultContactDetails: ContactDetail[] = [
   { label: 'Sumy, Ukraine', icon: MapPin },
-  { label: 'hello@ap-site.dev', icon: Mail },
+  { label: 'artyrpridatko@gmail.com', icon: Mail },
   { label: 'Available for new projects', icon: Clock3 },
 ];
 
@@ -22,12 +22,18 @@ export const ContactDetails = ({
   className,
 }: ContactDetailsProps) => (
   <ul
-    className={cn('flex flex-col gap-6 font-mono text-md font-semibold text-foreground', className)}
+    className={cn('flex flex-col gap-6 font-mono text-sm font-medium text-foreground', className)}
   >
     {items.map(({ label, icon: Icon }) => (
-      <li key={label} className="flex items-center gap-7">
-        <Icon className="size-5.5" aria-hidden="true" />
-        {label}
+      <li key={label} className="flex items-center gap-4">
+        <Icon className="size-5 shrink-0 text-primary" aria-hidden="true" />
+        {label.includes('@') ? (
+          <a className="break-all hover:text-primary" href={`mailto:${label}`}>
+            {label}
+          </a>
+        ) : (
+          label
+        )}
       </li>
     ))}
   </ul>

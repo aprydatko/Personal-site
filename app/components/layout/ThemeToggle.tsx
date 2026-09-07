@@ -1,11 +1,11 @@
 'use client';
 
-import { Moon } from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useSyncExternalStore } from 'react';
 
 const toggleClassName =
-  'flex size-9 shrink-0 items-center justify-center rounded-full bg-surface text-foreground text-lg transition-colors hover:bg-surface-raised';
+  'flex size-11 shrink-0 items-center justify-center rounded-full bg-surface text-foreground text-lg transition-colors hover:bg-surface-raised';
 const subscribe = () => () => undefined;
 
 export const ThemeToggle = () => {
@@ -33,12 +33,11 @@ export const ThemeToggle = () => {
       title={`Switch to ${isDark ? 'light' : 'dark'} theme`}
       className={toggleClassName}
     >
-      <span
-        className={`size-2 rounded-full  border-primary transition-colors opacity-60 ${
-          isDark ? 'bg-primary' : 'bg-foreground'
-        }`}
-        aria-hidden="true"
-      />
+      {isDark ? (
+        <Sun className="size-4" aria-hidden="true" />
+      ) : (
+        <Moon className="size-4" aria-hidden="true" />
+      )}
     </button>
   );
 };

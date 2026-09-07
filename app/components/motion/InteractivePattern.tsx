@@ -91,8 +91,16 @@ export const InteractivePattern = ({ className, ...props }: InteractivePatternPr
       startAnimation();
     };
 
+    const clearPointer = () => {
+      pointer = null;
+      startAnimation();
+    };
+    window.addEventListener('blur', clearPointer);
+    document.addEventListener('pointerleave', clearPointer);
     window.addEventListener('pointermove', handlePointerMove, { passive: true });
     return () => {
+      window.removeEventListener('blur', clearPointer);
+      document.removeEventListener('pointerleave', clearPointer);
       window.removeEventListener('pointermove', handlePointerMove);
       window.cancelAnimationFrame(frame);
     };

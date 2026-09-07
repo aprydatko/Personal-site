@@ -15,20 +15,20 @@ export const AboutHero = () => (
     <section className="relative grid gap-12 py-14 sm:grid-cols-[1.1fr_0.8fr] sm:items-start sm:gap-8 sm:py-20 lg:gap-18 lg:py-24">
       <div className="relative z-10">
         <p className="font-mono text-lg tracking-wide">ABOUT ME</p>
-        <h1 className="mt-6 font-mono text-[clamp(2.2rem,4.2vw,3.4rem)] font-medium leading-18 tracking-tight">
+        <h1 className="mt-6 font-sans text-[clamp(2.2rem,4.2vw,3.4rem)] font-medium leading-tight tracking-tight">
           I&apos;m Arthur,
           <br />a Fullstack Developer<span className="text-primary">.</span>
         </h1>
-        <p className="mt-7 font-medium max-w-lg text-sm leading-7 text-muted sm:text-lg sm:leading-9 tracking-wider">
+        <p className="mt-7 font-medium max-w-lg text-sm leading-7 text-muted sm:text-lg sm:leading-8 tracking-normal">
           I build scalable web applications with clean code and thoughtful design. I enjoy turning
           ideas into real products that solve problems.
         </p>
         <ContactDetails className="mt-12" />
         <Button
-          href="/arthur-prydatko-cv.pdf"
-          className="mt-12 gap-6 text-md w-fit bg-surface-sunken px-8 py-5 text-primary-foreground tracking-wide hover:bg-muted-strong"
+          href="mailto:artyrpridatko@gmail.com?subject=CV%20request"
+          className="mt-12 gap-6 text-md w-fit px-8 py-5 tracking-wide "
         >
-          Download CV <ArrowDownToLine size={16} data-icon="inline-end" aria-hidden="true" />
+          Request my CV <ArrowDownToLine size={16} data-icon="inline-end" aria-hidden="true" />
         </Button>
       </div>
       <div className="relative top-8 -left-0 mx-auto w-full max-w-125 lg:max-w-130">
@@ -42,7 +42,7 @@ export const AboutHero = () => (
             className="object-cover object-[60%_center]"
           />
         </div>
-        <div className="absolute bottom-7 -left-7 flex size-14 items-center justify-center rounded-full bg-background text-primary shadow-lg sm:size-20">
+        <div className="absolute bottom-7 left-4 flex size-14 items-center justify-center rounded-full bg-background text-primary shadow-lg sm:size-20">
           <Code2 className="size-10" aria-hidden="true" />
         </div>
       </div>

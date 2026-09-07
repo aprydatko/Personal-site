@@ -35,7 +35,7 @@ const focusAreas = [
 
 export const AboutDetails = () => (
   <section className="py-14 lg:py-20">
-    <h2 className="font-mono text-xl font-medium">My stack</h2>
+    <h2 className="font-sans text-xl font-medium">My stack</h2>
     <ul className="mt-8 grid grid-cols-3 gap-x-5 gap-y-8 sm:grid-cols-6">
       {technologies.map(({ label, mark: Mark, className }) => (
         <li
@@ -57,8 +57,8 @@ export const AboutDetails = () => (
     </ul>
     <div className="mt-24 grid gap-14 lg:grid-cols-[1fr_1fr] lg:gap-18">
       <article className="lg:border-r lg:border-border-subtle lg:pr-18">
-        <h2 className="font-mono text-xl font-medium">My story</h2>
-        <div className="mt-6 flex flex-col gap-6 text-sm leading-7 text-muted sm:text-lg sm:leading-9 tracking-wider">
+        <h2 className="font-sans text-xl font-medium">My story</h2>
+        <div className="mt-6 flex flex-col gap-6 text-sm leading-7 text-muted sm:text-lg sm:leading-8 tracking-normal">
           <p>
             My journey in development started back in 2018 when I built my first website. Since
             then, I&apos;ve been constantly learning and building, from small scripts to complex
@@ -78,7 +78,7 @@ export const AboutDetails = () => (
         </Button>
       </article>
       <section>
-        <h2 className="font-mono text-xl font-medium">What I focus on</h2>
+        <h2 className="font-sans text-xl font-medium">What I focus on</h2>
         <ul className="mt-6 flex flex-col">
           {focusAreas.map(({ title, description, icon: Icon }) => (
             <li
@@ -89,7 +89,7 @@ export const AboutDetails = () => (
                 <Icon className="size-5" aria-hidden="true" />
               </span>
               <div>
-                <h3 className="font-mono text-md font-medium">{title}</h3>
+                <h3 className="font-sans text-md font-medium">{title}</h3>
                 <p className="mt-1 max-w-100 text-sm leading-6 text-muted">{description}</p>
               </div>
             </li>

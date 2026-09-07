@@ -8,12 +8,12 @@ export const Footer = () => {
 
   return (
     <footer className="mt-auto border-t border-border-subtle" aria-label="Site footer">
-      <Container className="grid gap-8 py-10 font-mono sm:py-12 lg:grid-cols-[auto_auto_1fr_auto] lg:items-center lg:gap-12 xl:gap-16">
+      <Container className="grid gap-8 py-10 font-sans sm:py-12 lg:grid-cols-[auto_auto_1fr_auto] lg:items-center lg:gap-8">
         <Link
           href="/"
-          className="w-fit text-lg font-semibold tracking-tight text-foreground transition-opacity hover:opacity-60"
+          className="w-fit text-lg font-bold tracking-tight text-foreground transition-opacity hover:opacity-60"
         >
-          <span className="mr-3 text-dark-accent">{'//'}</span>AP SITE
+          <span className="text-primary">AP</span> SITE
         </Link>
 
         <p className="text-xs leading-6 text-muted sm:text-sm">
@@ -22,7 +22,7 @@ export const Footer = () => {
 
         <nav
           className="flex flex-wrap items-center gap-x-7 gap-y-4 text-sm font-medium text-foreground sm:gap-x-10 lg:justify-end xl:gap-x-14"
-          aria-label="Social links"
+          aria-label="Footer navigation"
         >
           {footerLinks.map(({ label, href }) =>
             href ? (

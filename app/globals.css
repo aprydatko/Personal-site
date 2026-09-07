@@ -1,16 +1,17 @@
 @import 'tailwindcss';
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 :root {
-  --background: #f9f9f9;
-  --foreground: #101010;
-  --surface: #f7f7f9;
-  --surface-raised: #eeeef2;
+  --background: #fafaf9;
+  --foreground: #181b1a;
+  --surface: #f1f3f1;
+  --surface-raised: #e7ece8;
   --surface-sunken: #030304;
   --border: #d5d5dd;
   --border-subtle: #e8e8ed;
   --muted: #6b6a6e;
   --muted-strong: #34343d;
-  --primary: #6948e8;
+  --primary: #28725d;
   --primary-foreground: #ffffff;
   --success: #16803c;
   --success-surface: #eaf8ef;
@@ -20,7 +21,7 @@
   --danger-surface: #fff0f0;
   --info: #2563eb;
   --info-surface: #eff6ff;
-  --focus: #6948e8;
+  --focus: #28725d;
   --code-background: #111214;
   --code-foreground: #e4e4e7;
   --code-line: #62656e;
@@ -30,16 +31,16 @@
 
 [data-theme='dark'] {
   color-scheme: dark;
-  --background: #07090c;
+  --background: #101714;
   --foreground: #f4f4f5;
-  --surface: #0e1116;
-  --surface-raised: #151a22;
+  --surface: #17201b;
+  --surface-raised: #202d25;
   --surface-sunken: #060607;
   --border: #343a47;
   --border-subtle: #252b35;
   --muted: #9da3af;
   --muted-strong: #b9bec8;
-  --primary: #9d8cff;
+  --primary: #84cbb0;
   --primary-foreground: #ffffff;
   --success: #16803c;
   --success-surface: #eaf8ef;
@@ -49,7 +50,7 @@
   --danger-surface: #fff0f0;
   --info: #2563eb;
   --info-surface: #eff6ff;
-  --focus: #6948e8;
+  --focus: #28725d;
   --code-background: #080c10;
   --code-foreground: #f1f1f2;
   --code-line: #5c6570;
@@ -136,5 +137,120 @@ body {
 
   .swiper-wrapper {
     transition-duration: 0ms !important;
+  }
+}
+
+/* Shared visual language: typography, rhythm, interaction and surfaces. */
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-manrope), sans-serif;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+  h1 {
+    line-height: 1.12;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  button,
+  a,
+  input,
+  textarea {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button:not(:disabled),
+  [role='button'] {
+    cursor: pointer;
+  }
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 5px;
+  }
+  ::selection {
+    background: var(--primary);
+    color: var(--background);
+  }
+  [id] {
+    scroll-margin-top: 110px;
+  }
+}
+.display-title {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: clamp(2.65rem, 5.1vw, 4.6rem);
+  line-height: 1.06;
+  font-weight: 650;
+  letter-spacing: -0.06em;
+}
+.home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  padding-block: clamp(3rem, 6vw, 6rem);
+}
+.section-space {
+  padding-block: clamp(3rem, 6vw, 5.5rem);
+}
+.page-title {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.12;
+  font-weight: 600;
+  letter-spacing: -0.055em;
+}
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: color-mix(in srgb, var(--background) 94%, transparent);
+  backdrop-filter: blur(16px);
+}
+.project-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.page-pattern {
+  opacity: 0.3;
+  mask-image: linear-gradient(to right, transparent, black);
+}
+@media (max-width: 767px) {
+  .home-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    padding-block: 3rem 2rem;
+  }
+  .home-hero [data-home-code-window] {
+    max-height: 340px;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.pattern-grid {
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px) !important;
+  background-size: 28px 28px !important;
+  transform: perspective(500px) rotateY(-15deg);
+}
+.pattern-notes {
+  border-bottom: 1px solid var(--primary);
+}
+@media (min-width: 768px) {
+  .home-hero {
+    padding-block: clamp(3rem, 4.5vw, 4.5rem);
   }
 }

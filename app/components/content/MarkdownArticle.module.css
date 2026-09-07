@@ -1,9 +1,11 @@
 .content {
+  min-width: 0;
+  overflow-wrap: anywhere;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 500;
   line-height: 1.7;
-  letter-spacing: 0.045rem;
+  letter-spacing: 0;
 }
 
 .content > * + * {
@@ -12,7 +14,7 @@
 .content h2,
 .content h3 {
   color: var(--foreground);
-  font-family: var(--font-mono);
+  font-family: var(--font-manrope);
   font-weight: 600;
   line-height: 1.25;
 }
@@ -74,12 +76,12 @@
 .numbered h2 {
   position: relative;
   counter-increment: markdown-section;
-  scroll-margin-top: 2rem;
+  scroll-margin-top: 7rem;
 }
 .numbered h2::before {
   content: counter(markdown-section, decimal-leading-zero);
   position: absolute;
-  right: calc(100% + 3.7rem);
+  right: calc(100% + 1rem);
   color: var(--muted);
   font: 1.15rem var(--font-mono);
 }

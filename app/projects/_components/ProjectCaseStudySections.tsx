@@ -114,7 +114,7 @@ const ProjectKeyFeatures = ({ keyFeatures }: Pick<Project, 'keyFeatures'>) => (
         return (
           <li key={feature}>
             <Icon size={25} strokeWidth={1.35} className="text-muted" aria-hidden="true" />
-            <h3 className="mt-5 font-mono text-sm font-medium">{title}</h3>
+            <h3 className="mt-5 font-sans text-sm font-medium">{title}</h3>
             <p className="mt-3 text-sm leading-6 text-muted">{description}</p>
           </li>
         );
@@ -137,7 +137,7 @@ const ProjectNarrative = ({ html }: Pick<Project, 'html'>) => (
 const ProjectContactCta = () => (
   <aside className="mt-12 flex flex-col justify-between gap-6 rounded-lg border border-border-subtle bg-surface px-7 py-6 sm:flex-row sm:items-center">
     <div>
-      <h2 className="font-mono text-lg font-medium tracking-tight">Have a project in mind?</h2>
+      <h2 className="font-sans text-lg font-medium tracking-tight">Have a project in mind?</h2>
       <p className="mt-1 text-sm text-muted">Let’s build something great together.</p>
     </div>
     <Button href="/contact" className="w-fit px-5 py-3.5 text-xs max-sm:w-full">

@@ -12,7 +12,7 @@ const ProjectHero = ({ project, projectImage }: ProjectCaseStudyHeaderProps) => 
   <header className="grid items-start gap-10 lg:grid-cols-[minmax(0,.8fr)_minmax(0,1.2fr)] lg:gap-16">
     <div>
       <p className="mt-2 font-mono text-sm uppercase tracking-wide text-muted">{project.label}</p>
-      <h1 className="mt-11 font-mono text-[clamp(2.75rem,5vw,4rem)] font-medium leading-16 tracking-wide">
+      <h1 className="mt-11 font-sans text-[clamp(2.75rem,5vw,4rem)] font-medium leading-tight tracking-tight">
         {project.title}
       </h1>
       <div className="mt-5 max-w-xl text-muted">
@@ -25,7 +25,7 @@ const ProjectHero = ({ project, projectImage }: ProjectCaseStudyHeaderProps) => 
       </div>
       <div className="mt-9 flex flex-wrap gap-3">
         <Button href="#overview" className="gap-4 px-5 py-5 text-sm">
-          Visit live site <ExternalLink size={16} data-icon="inline-end" aria-hidden="true" />
+          Explore the project <ExternalLink size={16} data-icon="inline-end" aria-hidden="true" />
         </Button>
       </div>
     </div>

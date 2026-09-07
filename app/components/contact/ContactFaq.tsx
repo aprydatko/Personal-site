@@ -34,7 +34,7 @@ export const ContactFaq = () => (
   <section className="grid gap-12 border-t border-border-subtle py-16 lg:grid-cols-[0.44fr_1fr] lg:gap-16 lg:py-24">
     <div>
       <p className="font-mono text-sm font-medium tracking-wide text-primary">FAQ</p>
-      <h2 className="mt-8 max-w-xs font-mono text-[clamp(2.5rem,4vw,2rem)] font-medium leading-14 tracking-tight">
+      <h2 className="mt-8 max-w-xs font-sans text-[clamp(2.5rem,4vw,2rem)] font-medium leading-14 tracking-tight">
         Quick answers<span className="opacity-60">.</span>
       </h2>
       <p className="mt-11 max-w-56 text-lg leading-9 font-medium text-muted">

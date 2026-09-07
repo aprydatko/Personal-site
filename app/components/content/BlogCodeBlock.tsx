@@ -32,26 +32,18 @@ export const BlogCodeBlock = ({
   fileName,
 }: BlogCodeBlockProps) => {
   const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
   const lines = code.replace(/\n$/, '').split('\n');
   const isSingleLine = lines.length === 1;
   const label = fileName ?? languageLabels[language.toLowerCase()] ?? language;
 
-  const copyWithFallback = () => {
-    const textarea = document.createElement('textarea');
-    textarea.value = code;
-    textarea.style.position = 'fixed';
-    textarea.style.opacity = '0';
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand('copy');
-    textarea.remove();
-  };
-
-  const copyCode = () => {
-    setCopied(true);
-    window.setTimeout(() => setCopied(false), 1800);
-    if (!navigator.clipboard) return copyWithFallback();
-    void navigator.clipboard.writeText(code).catch(copyWithFallback);
+  const copyCode = async () => {
+    try {
+      await navigator.clipboard.writeText(code);
+      setCopied(true);
+      setCopyError(false);
+      window.setTimeout(() => setCopied(false), 1800);
+    } catch { setCopyError(true); }
   };
 
   return (
@@ -59,7 +51,7 @@ export const BlogCodeBlock = ({
       {!isSingleLine && <p className={styles.fileName}>{label}</p>}
       <button className={styles.copyButton} type="button" onClick={copyCode} aria-label={copied ? 'Code copied' : 'Copy code'}>
         {copied ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}
-        <span className={styles.copyStatus} aria-live="polite">{copied ? 'Copied' : ''}</span>
+        <span className={styles.copyStatus} aria-live="polite">{copied ? 'Copied' : copyError ? 'Unable to copy. Select the code to copy it manually.' : ''}</span>
       </button>
       <pre className={styles.codeArea}>
         {lines.map((line, index) => (

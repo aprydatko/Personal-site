@@ -7,10 +7,10 @@ type ContainerProps = HTMLAttributes<HTMLDivElement> & {
 
 const sizes = {
   default: 'max-w-7xl',
-  wide: 'max-w-8xl',
+  wide: 'max-w-[1280px]',
   full: 'max-w-none',
 };
 
 export const Container = ({ className, size = 'wide', ...props }: ContainerProps) => (
-  <div className={cn('mx-auto w-full px-4 sm:px-6 lg:px-10', sizes[size], className)} {...props} />
+  <div className={cn('mx-auto w-full px-5 sm:px-8 lg:px-12', sizes[size], className)} {...props} />
 );

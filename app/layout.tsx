@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { JetBrains_Mono, Manrope } from 'next/font/google';
 import { Footer } from './components/layout/Footer';
 import './globals.css';
+import { PageMotion } from './components/motion/PageMotion';
 
 const manrope = Manrope({
   variable: '--font-manrope',
@@ -54,7 +55,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
             Skip to main content
           </a>
           <Header />
-          <div className="flex flex-1 flex-col">{children}</div>
+          <PageMotion>{children}</PageMotion>
           <Footer />
         </ThemeProvider>
       </body>

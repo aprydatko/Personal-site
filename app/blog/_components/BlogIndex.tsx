@@ -14,6 +14,7 @@ export const BlogIndex = ({ posts }: BlogIndexProps) => {
   const categories = ['All', ...new Set(posts.map((post) => post.category))];
   const [category, setCategory] = useState('All');
   const [query, setQuery] = useState('');
+  const [limit, setLimit] = useState(6);
   const visibleArticles = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
     return posts.filter(
@@ -25,8 +26,15 @@ export const BlogIndex = ({ posts }: BlogIndexProps) => {
 
   return (
     <section className="pb-[clamp(3rem,7vw,7rem)]">
-      <div className="flex items-end justify-between border-b border-border-subtle">
-        <Tabs value={category} onValueChange={setCategory} className="min-w-0 overflow-visible">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-end justify-between border-b border-border-subtle">
+        <Tabs
+          value={category}
+          onValueChange={(value) => {
+            setCategory(value);
+            setLimit(6);
+          }}
+          className="min-w-0 overflow-visible"
+        >
           <TabsList className="flex-wrap gap-x-[clamp(1.2rem,4vw,4rem)] gap-y-0">
             {categories.map((item) => (
               <TabsTrigger key={item} value={item} className="py-5 text-xs sm:text-sm">
@@ -35,18 +43,21 @@ export const BlogIndex = ({ posts }: BlogIndexProps) => {
             ))}
           </TabsList>
         </Tabs>
-        <div className="mb-3 ml-4 w-full max-w-60 shrink-0">
+        <div className="mb-3 w-full sm:max-w-60 shrink-0">
           <Search
             aria-label="Search articles"
             value={query}
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={(event) => {
+              setQuery(event.target.value);
+              setLimit(6);
+            }}
             placeholder="Search articles"
             className="border-border bg-transparent"
           />
         </div>
       </div>
       <div className="mt-10">
-        {visibleArticles.map((article) => (
+        {visibleArticles.slice(0, limit).map((article) => (
           <BlogArticleRow key={article.slug} article={article} />
         ))}
         {visibleArticles.length === 0 && (
@@ -55,8 +66,12 @@ export const BlogIndex = ({ posts }: BlogIndexProps) => {
           </p>
         )}
       </div>
-      {visibleArticles.length > 0 && (
-        <Button variant="outline" className="mx-auto mt-8 flex w-fit px-6 py-3">
+      {visibleArticles.length > limit && (
+        <Button
+          onClick={() => setLimit((value) => value + 6)}
+          variant="outline"
+          className="mx-auto mt-8 flex w-fit px-6 py-3"
+        >
           Load more articles{' '}
           <ArrowDown data-icon="inline-end" className="h-4 w-4" aria-hidden="true" />
         </Button>
