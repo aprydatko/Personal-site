@@ -64,6 +64,7 @@ export const InteractivePattern = ({ className, ...props }: InteractivePatternPr
         hasEnergy ||= Math.abs(state.x) > 0.05 || Math.abs(state.y) > 0.05 || Math.abs(state.scale - 1) > 0.01;
       });
 
+
       if (pointer || hasEnergy) frame = window.requestAnimationFrame(animate);
       else running = false;
     };

@@ -22,6 +22,8 @@ export type Project = BaseFrontmatter & {
   slug: string;
   category: string;
   label: string;
+  tagline?: string;
+  intro?: string;
   stack: string[];
   heroImage?: string;
   role?: string;
@@ -30,5 +32,6 @@ export type Project = BaseFrontmatter & {
   client?: string;
   services?: string;
   features: string[];
+  keyFeatures: string[];
   html: string;
 };

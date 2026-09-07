@@ -1,9 +1,11 @@
 ---
 title: Nexora
-description: AI-powered analytics platform for business intelligence and reporting.
-date: "2024-06-01"
+description: AI-powered analytics platform for business intelligence and reporting. Nexora helps companies unify their data and turn it into clear insights. Real-time dashboards, smart reports and beautiful data visualizations.
+date: '2024-06-01'
 category: Web Apps
 label: Web App
+tagline: AI-powered analytics platform for business intelligence.
+intro: Nexora helps companies unify their data and turn it into clear insights. Real-time dashboards, smart reports and beautiful data visualizations.
 stack:
   - Next.js
   - TypeScript
@@ -22,6 +24,11 @@ features:
   - Interactive dashboards
   - Custom reports builder
   - Role-based access control
+keyFeatures:
+  - "Advanced analytics|Powerful analytics engine with custom metrics and filters."
+  - "Data integrations|Connect multiple data sources with our simple integration system."
+  - "Permissions|Granular access control and team management for organizations."
+  - "Performance|Built for speed with SSR, caching and optimized queries."
 ---
 
 ## The challenge

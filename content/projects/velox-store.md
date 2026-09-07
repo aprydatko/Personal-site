@@ -4,6 +4,8 @@ description: Modern e-commerce built for speed, clarity, and conversion.
 date: "2024-05-15"
 category: E-commerce
 label: E-commerce
+tagline: Modern commerce built for speed and conversion.
+intro: Velox gives growing teams a flexible storefront with clear product discovery, a focused checkout, and a foundation ready for what comes next.
 stack:
   - Next.js
   - Stripe
@@ -19,6 +21,11 @@ features:
   - Fast product discovery
   - Secure Stripe checkout
   - Flexible product catalog
+keyFeatures:
+  - "Fast discovery|Help customers find the right product with less friction."
+  - "Secure checkout|A focused purchase flow built around trusted payments."
+  - "Flexible catalog|Keep products, variants, and campaigns easy to manage."
+  - "Performance|Fast pages and optimized delivery across every device."
 ---
 
 ## The challenge
