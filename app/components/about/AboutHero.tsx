@@ -4,21 +4,13 @@ import { Button } from '@/app/components/ui/button';
 import {
   ArrowDownToLine,
   CalendarDays,
-  Clock3,
   Code2,
   FolderOpen,
-  Mail,
-  MapPin,
   Users,
 } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-
-const contactDetails = [
-  { label: 'Sumy, Ukraine', icon: MapPin },
-  { label: 'hello@ap-site.dev', icon: Mail },
-  { label: 'Available for new projects', icon: Clock3 },
-];
+import { ContactDetails } from '@/app/components/contact/ContactDetails';
 
 const achievements = [
   { value: '6+', label: 'Years of experience', icon: CalendarDays },
@@ -43,14 +35,7 @@ export const AboutHero = () => {
           I build scalable web applications with clean code and thoughtful design. I enjoy turning
           ideas into real products that solve problems.
         </p>
-        <ul className="mt-12 flex flex-col gap-5 font-mono text-md font-medium text-foreground">
-          {contactDetails.map(({ label, icon: Icon }) => (
-            <li key={label} className="flex items-center gap-9">
-              <Icon className="size-6" aria-hidden="true" />
-              {label}
-            </li>
-          ))}
-        </ul>
+        <ContactDetails className="mt-12" />
         <Button
           className="mt-12 gap-6 text-md w-fit bg-surface-sunken px-8 py-5 text-primary-foreground tracking-wide hover:bg-muted-strong"
           type="button"
