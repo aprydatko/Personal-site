@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@/app/components/ui/button';
+import { Alert } from '@/app/components/ui/alert';
 import { Input } from '@/app/components/ui/input';
 import { Textarea } from '@/app/components/ui/textarea';
 import { ArrowUpRight } from 'lucide-react';
@@ -11,7 +12,8 @@ export const ContactForm = () => {
   const [statusMessage, setStatusMessage] = useState('');
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const data = new FormData(form);
     const name = String(data.get('name') ?? '').trim();
     const email = String(data.get('email') ?? '').trim();
     const message = String(data.get('message') ?? '').trim();
@@ -27,7 +29,7 @@ export const ContactForm = () => {
     if (response?.ok) {
       setStatus('success');
       setStatusMessage('Message sent successfully. I will get back to you soon.');
-      event.currentTarget.reset();
+      form.reset();
     } else {
       const result = await response?.json().catch(() => null);
       setStatus('error');
@@ -97,12 +99,9 @@ export const ContactForm = () => {
         <ArrowUpRight className="size-4" aria-hidden="true" />
       </Button>
       {status !== 'idle' && (
-        <p
-          role="status"
-          className={`mt-4 text-sm leading-6 ${status === 'success' ? 'text-primary' : status === 'error' ? 'text-danger' : 'text-muted'}`}
-        >
+        <Alert className="mt-4" variant={status === 'success' ? 'success' : status === 'error' ? 'error' : 'info'}>
           {statusMessage}
-        </p>
+        </Alert>
       )}
     </form>
   );
