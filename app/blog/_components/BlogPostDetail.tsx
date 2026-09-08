@@ -3,12 +3,11 @@ import { BlogHeroCodeWindow } from '@/app/components/content/BlogHeroCodeWindow'
 import { MarkdownArticle } from '@/app/components/content/MarkdownArticle';
 import { Container } from '@/app/components/layout/Container';
 import type { BlogPost } from '@/lib/content';
-import { getHeadingId } from '@/lib/content/heading-id';
 import { parseDate } from '@/lib/date';
-import { ArticlePagination } from './ArticlePagination';
-import { ArticleShare } from './ArticleShare';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import { ArticlePagination } from './ArticlePagination';
+import { OnThisPage } from './OnThisPage';
 
 const BlogPostHeader = ({ post }: { post: BlogPost }) => (
   <>
@@ -31,22 +30,6 @@ const BlogPostHeader = ({ post }: { post: BlogPost }) => (
     </p>
     <AuthorBadge />
   </>
-);
-
-const BlogPostAside = ({ headings }: Pick<BlogPost, 'headings'>) => (
-  <aside className="hidden w-full lg:sticky lg:top-28 lg:self-start lg:block">
-    <p className="mt-3 font-mono text-sm font-semibold text-muted">ON THIS PAGE</p>
-    <ol className="mt-8 space-y-5 font-mono text-base font-medium leading-6 text-muted-strong">
-      {headings.map((heading, index) => (
-        <li key={heading}>
-          <a className="transition-colors hover:text-primary" href={`#${getHeadingId(heading)}`}>
-            {index + 1}. {heading}
-          </a>
-        </li>
-      ))}
-    </ol>
-    <ArticleShare />
-  </aside>
 );
 
 type BlogPostDetailProps = {
@@ -79,7 +62,7 @@ export const BlogPostDetail = ({ post, previousPost, nextPost }: BlogPostDetailP
             <MarkdownArticle html={post.html} numbered />
           </div>
         </article>
-        <BlogPostAside headings={post.headings} />
+        <OnThisPage headings={post.headings} />
       </div>
       <ArticlePagination previous={previousPost} next={nextPost} />
     </Container>

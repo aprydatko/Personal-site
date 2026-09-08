@@ -37,7 +37,7 @@ export const FeaturedProjects = async () => {
                 <span className="font-mono text-xs text-primary">{project.label}</span>
               </div>
               <p className="mt-3 mb-5 max-w-md text-muted leading-7">{project.description}</p>
-              <div className="mt-auto flex items-center justify-between gap-5 border-b border-border-subtle py-5">
+              <div className="mt-auto flex items-center justify-between gap-5 py-5">
                 <span className="font-mono text-xs leading-6 text-muted">
                   {project.stack.join(' / ')}
                 </span>

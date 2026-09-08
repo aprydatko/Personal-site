@@ -10,23 +10,23 @@ import { ArrowRight } from 'lucide-react';
 const questions = [
   [
     'What types of projects do you work on?',
-    'I build thoughtful web products, internal tools, and user-focused platforms from early ideas through production.',
+    'I work on websites, SaaS products, internal tools, dashboards, and custom web applications. I can help shape an early idea, improve an existing product, or take a well-defined feature from design through production.',
   ],
   [
     'What is your tech stack?',
-    'My core stack is Next.js, TypeScript, React, Node.js, PostgreSQL, Docker, and AWS.',
+    'My core stack is Next.js, React, TypeScript, Node.js, PostgreSQL, Docker, and AWS. I choose tools based on the product rather than forcing every project into the same stack, with a focus on maintainable code and reliable performance.',
   ],
   [
     'Are you available for freelance work?',
-    'Yes. I am open to select freelance and contract projects that are a strong mutual fit.',
+    'Yes. I am available for select freelance and contract projects. I am especially interested in products that need a thoughtful frontend, a reliable backend, or help turning a rough idea into a polished, working application.',
   ],
   [
     'How do you work?',
-    'I keep the process collaborative: clarify the problem, prototype the solution, and deliver in focused, transparent iterations.',
+    'I start by understanding the goals, users, and technical constraints. Then I break the work into clear milestones, validate the direction early, and deliver in focused iterations with regular communication, code reviews, and practical documentation.',
   ],
   [
     'What is your hourly rate?',
-    'Scope and engagement shape the rate. Send a short brief and I will provide a clear estimate.',
+    'I usually price work based on the scope, complexity, and type of engagement rather than using one fixed rate for every project. Send me a short description of what you need, your timeline, and any existing materials, and I will suggest the best approach with a clear estimate.',
   ],
 ];
 

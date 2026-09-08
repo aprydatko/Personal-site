@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { parseDate } from '@/lib/date';
 
 export const BlogArticleRow = ({ article }: { article: BlogPost }) => (
-  <article className="group relative grid gap-4 border-b border-border-subtle py-8 sm:grid-cols-[8rem_minmax(0,1fr)_auto] sm:gap-8">
+  <article className="group relative grid gap-4 border-b border-border-subtle py-8 last:border-b-0 sm:grid-cols-[8rem_minmax(0,1fr)_auto] sm:gap-8">
     <time dateTime={article.date} className="font-mono text-xs leading-6 text-muted">
       {parseDate(article.date).toLocaleDateString('en-US', {
         month: 'short',

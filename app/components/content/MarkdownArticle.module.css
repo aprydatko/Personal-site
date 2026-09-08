@@ -58,6 +58,34 @@
   color: var(--foreground);
   font-weight: 700;
 }
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.content th,
+.content td {
+  width: 50%;
+  padding: 0.9rem 0;
+  text-align: left;
+  vertical-align: top;
+}
+.content th {
+  border-bottom: 2px solid var(--border);
+  font-weight: 700;
+}
+.content td {
+  border-bottom: 1px solid var(--border-subtle);
+}
+.content th + th,
+.content td + td {
+  padding-left: 2rem;
+}
+.content tbody tr:last-child td {
+  border-bottom: 0;
+}
 .content > pre {
   overflow-x: auto;
   border-radius: 0.5rem;
@@ -79,6 +107,7 @@
   scroll-margin-top: 7rem;
 }
 .numbered h2::before {
+  width: 2rem;
   content: counter(markdown-section, decimal-leading-zero);
   position: absolute;
   right: calc(100% + 1rem);
