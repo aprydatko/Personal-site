@@ -5,7 +5,7 @@ export type NavigationItem = {
 
 export type FooterLink = NavigationItem;
 
-export type ProjectPreview = 'planora' | 'nexora' | 'velox';
+export type ProjectPreview = 'planora';
 
 export type Project = {
   kind: string;
@@ -44,20 +44,6 @@ export const projects: Project[] = [
     description: 'Project management platform for distributed teams.',
     stack: 'Next.js, TypeScript, Tailwind, PostgreSQL',
     preview: 'planora',
-  },
-  {
-    kind: 'Web Application',
-    name: 'Nexora',
-    description: 'AI-powered analytics platform for business intelligence.',
-    stack: 'Next.js, TypeScript, PostgreSQL, Redis',
-    preview: 'nexora',
-  },
-  {
-    kind: 'E-commerce',
-    name: 'Velox Store',
-    description: 'Modern e-commerce built for speed and conversion.',
-    stack: 'Next.js, Stripe, Tailwind, PostgreSQL',
-    preview: 'velox',
   },
 ];
 

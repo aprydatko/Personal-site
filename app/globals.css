@@ -145,7 +145,7 @@ body {
   h1,
   h2,
   h3 {
-    font-family: var(--font-manrope), sans-serif;
+    font-family: var(--font-jetbrains-mono), sans-serif;
     letter-spacing: -0.035em;
     text-wrap: balance;
   }
@@ -178,11 +178,11 @@ body {
   }
 }
 .display-title {
-  font-family: var(--font-manrope), sans-serif;
-  font-size: clamp(2.65rem, 5.1vw, 4.6rem);
+  font-family: var(--font-jetbrains-mono), sans-serif;
+  font-size: clamp(2.65rem, 5.1vw, 4rem);
   line-height: 1.06;
-  font-weight: 650;
-  letter-spacing: -0.06em;
+  font-weight: 500;
+  letter-spacing: -0.04em;
 }
 .home-hero {
   display: grid;
@@ -191,8 +191,18 @@ body {
   align-items: center;
   padding-block: clamp(3rem, 6vw, 6rem);
 }
+.home-interactive-pattern {
+  -webkit-mask-image:
+    linear-gradient(90deg, transparent 0%, black 24%, black 82%, transparent 100%),
+    linear-gradient(180deg, black 0%, black 78%, transparent 100%);
+  -webkit-mask-composite: intersect;
+  mask-image:
+    linear-gradient(90deg, transparent 0%, black 24%, black 82%, transparent 100%),
+    linear-gradient(180deg, black 0%, black 78%, transparent 100%);
+  mask-composite: intersect;
+}
 .section-space {
-  padding-block: clamp(3rem, 6vw, 5.5rem);
+  padding-block: clamp(2rem, 6vw, 3rem);
 }
 .page-title {
   font-family: var(--font-manrope), sans-serif;
@@ -224,7 +234,6 @@ body {
     padding-block: 3rem 2rem;
   }
   .home-hero [data-home-code-window] {
-    max-height: 340px;
     overflow: hidden;
     border-radius: 8px;
   }

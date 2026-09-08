@@ -11,8 +11,6 @@ type ProjectImageProps = {
 
 const projectImageSources: Record<ProjectPreview, string> = {
   planora: '/sass-platform.png',
-  nexora: '/web-site.png',
-  velox: '/e-commerse.png',
 };
 
 export const ProjectImage = ({

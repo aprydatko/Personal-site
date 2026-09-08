@@ -1,6 +1,6 @@
-import { Button } from '@/app/components/ui/button';
 import { ContactDetails } from '@/app/components/contact/ContactDetails';
-import { ArrowDownToLine, CalendarDays, Code2, FolderOpen, Users } from 'lucide-react';
+import { ResumeViewer } from '@/app/components/shared/ResumeViewer';
+import { CalendarDays, Code2, FolderOpen, Users } from 'lucide-react';
 import Image from 'next/image';
 
 const achievements = [
@@ -24,12 +24,7 @@ export const AboutHero = () => (
           ideas into real products that solve problems.
         </p>
         <ContactDetails className="mt-12" />
-        <Button
-          href="mailto:artyrpridatko@gmail.com?subject=CV%20request"
-          className="mt-12 gap-6 text-md w-fit px-8 py-5 tracking-wide "
-        >
-          Request my CV <ArrowDownToLine size={16} data-icon="inline-end" aria-hidden="true" />
-        </Button>
+        <ResumeViewer />
       </div>
       <div className="relative top-8 -left-0 mx-auto w-full max-w-125 lg:max-w-130">
         <div className="relative aspect-[4/4.5] overflow-hidden rounded-3xl border border-border bg-surface shadow-[0_18px_35px_color-mix(in_srgb,var(--foreground)_12%,transparent)]">

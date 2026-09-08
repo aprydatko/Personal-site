@@ -8,7 +8,7 @@ import { ProjectCaseStudySections } from './ProjectCaseStudySections';
 type ProjectCaseStudyProps = { project: Project };
 
 export const ProjectCaseStudy = ({ project }: ProjectCaseStudyProps) => {
-  const projectImage = project.heroImage ?? '/web-site.png';
+  const projectImage = project.heroImage ?? '/sass-platform.png';
 
   return (
     <main id="main-content" tabIndex={-1}>

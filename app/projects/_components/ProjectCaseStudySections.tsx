@@ -16,7 +16,7 @@ import {
   Wind,
   Zap,
 } from 'lucide-react';
-import { ProjectCaseStudyImage } from './ProjectCaseStudyImage';
+import { ProjectGallery } from './ProjectGallery';
 import { ProjectSectionHeading } from './ProjectSectionHeading';
 
 type ProjectCaseStudySectionsProps = {
@@ -25,22 +25,10 @@ type ProjectCaseStudySectionsProps = {
 };
 
 const ProjectOverviewMedia = ({ project, projectImage }: ProjectCaseStudySectionsProps) => (
-  <div className="grid min-h-72 gap-4 sm:grid-cols-[1.55fr_.95fr]">
-    <div className="relative min-h-72 overflow-hidden rounded-lg border border-border-subtle bg-code-background shadow-[0_10px_20px_rgb(0_0_0_/_8%)]">
-      <ProjectCaseStudyImage alt={project.title} src={projectImage} />
-    </div>
-    <div className="grid gap-4 sm:grid-rows-2">
-      {['overview detail', 'analytics detail'].map((detail) => (
-        <div
-          className="relative min-h-32 overflow-hidden rounded-lg border border-border-subtle bg-code-background shadow-[0_10px_20px_rgb(0_0_0_/_8%)]"
-          key={detail}
-        >
-          <ProjectCaseStudyImage alt={`${project.title} ${detail}`} src={projectImage} />
-          <span className="absolute inset-0 bg-black/35" aria-hidden="true" />
-        </div>
-      ))}
-    </div>
-  </div>
+  <ProjectGallery
+    title={project.title}
+    images={project.gallery.length > 0 ? project.gallery : [projectImage]}
+  />
 );
 
 const ProjectOverview = (props: ProjectCaseStudySectionsProps) => (

@@ -5,11 +5,11 @@ import { type ComponentPropsWithoutRef, useEffect, useRef } from 'react';
 
 type InteractivePatternProps = ComponentPropsWithoutRef<'svg'>;
 
-const columns = 18;
-const rows = 11;
+const columns = 32;
+const rows = 18;
 const dots = Array.from({ length: columns * rows }, (_, index) => ({
-  x: 12 + (index % columns) * (276 / (columns - 1)),
-  y: 12 + Math.floor(index / columns) * (176 / (rows - 1)),
+  x: 10 + (index % columns) * (280 / (columns - 1)),
+  y: 10 + Math.floor(index / columns) * (180 / (rows - 1)),
   phase: index * 0.73,
 }));
 
@@ -51,7 +51,9 @@ export const InteractivePattern = ({ className, ...props }: InteractivePatternPr
           ? Math.sin(angle) * strength * 16 + Math.sin(angle + Math.PI / 2) * ripple
           : 0;
         const targetScale = 1 + strength * 1.15;
-        const targetOpacity = 0.5 + strength * 0.5;
+        // Keep the field quiet at rest, with a little more presence toward its outer edge.
+        const edgePresence = 0.28 + (dot.x / 300) * 0.42;
+        const targetOpacity = edgePresence + strength * (0.35 + edgePresence * 0.65);
 
         state.x += (targetX - state.x) * 0.14;
         state.y += (targetY - state.y) * 0.14;
@@ -124,8 +126,8 @@ export const InteractivePattern = ({ className, ...props }: InteractivePatternPr
           cy={dot.y}
           fill="currentColor"
           key={index}
-          opacity="0.72"
-          r="0.9"
+          opacity="0.42"
+          r="0.72"
         />
       ))}
     </svg>

@@ -18,6 +18,7 @@ export const getProjects = cache(async (): Promise<Project[]> => {
     tagline: optionalString(frontmatter.tagline),
     intro: optionalString(frontmatter.intro),
     stack: stringList(frontmatter.stack, 'stack', filePath),
+    gallery: stringList(frontmatter.gallery, 'gallery', filePath),
     features: stringList(frontmatter.features, 'features', filePath),
     keyFeatures: stringList(frontmatter.keyFeatures, 'keyFeatures', filePath),
     heroImage: optionalString(frontmatter.heroImage),

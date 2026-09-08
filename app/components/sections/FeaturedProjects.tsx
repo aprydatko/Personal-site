@@ -25,7 +25,7 @@ export const FeaturedProjects = async () => {
             >
               <div className="relative aspect-[1.6] overflow-hidden rounded-lg border border-border-subtle bg-surface">
                 <Image
-                  src={project.heroImage ?? '/web-site.png'}
+                  src={project.heroImage ?? '/sass-platform.png'}
                   alt={`${project.title} interface preview`}
                   fill
                   sizes="(min-width: 768px) 45vw, 100vw"

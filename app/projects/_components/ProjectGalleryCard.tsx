@@ -10,7 +10,7 @@ export const ProjectGalleryCard = ({ project }: { project: Project }) => (
       aria-hidden="true"
     >
       <Image
-        src={project.heroImage ?? '/web-site.png'}
+        src={project.heroImage ?? '/sass-platform.png'}
         alt=""
         fill
         sizes="(min-width: 640px) 35vw, 90vw"

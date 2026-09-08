@@ -26,6 +26,7 @@ export type Project = BaseFrontmatter & {
   intro?: string;
   stack: string[];
   heroImage?: string;
+  gallery: string[];
   role?: string;
   duration?: string;
   team?: string;
