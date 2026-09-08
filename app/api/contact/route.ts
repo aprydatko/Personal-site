@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -16,27 +17,27 @@ export async function POST(request: Request) {
     );
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_TO_EMAIL;
-  const from = process.env.CONTACT_FROM_EMAIL;
+  const smtpUser = process.env.GMAIL_SMTP_USER;
+  const smtpPassword = process.env.GMAIL_SMTP_APP_PASSWORD?.replace(/\s/g, '');
+  const to = process.env.CONTACT_TO_EMAIL ?? smtpUser;
 
-  if (!apiKey || !to || !from) {
+  if (!smtpUser || !smtpPassword || !to) {
     return NextResponse.json({ error: 'Email service is not configured yet.' }, { status: 503 });
   }
 
-  const response = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      from,
-      to: [to],
-      reply_to: email,
+  try {
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: { user: smtpUser, pass: smtpPassword },
+    });
+    await transporter.sendMail({
+      from: smtpUser,
+      to,
+      replyTo: email,
       subject: subject || `Project inquiry from ${name}`,
       text: `${message}\n\nFrom: ${name}\nEmail: ${email}`,
-    }),
-  });
-
-  if (!response.ok) {
+    });
+  } catch {
     return NextResponse.json(
       { error: 'The message could not be sent. Please try again.' },
       { status: 502 },

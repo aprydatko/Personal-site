@@ -18,7 +18,7 @@ export default function ContactPage() {
       <Container>
         <section className="relative grid gap-12 border-b border-border-subtle py-14 lg:grid-cols-[1fr_0.92fr] lg:gap-20 lg:py-20">
           <div className="relative">
-            <ContactPattern className="right-0 bottom-8 hidden h-32 w-[min(42rem,60vw)] opacity-75 lg:block" />
+            <ContactPattern className="right-0 bottom-[-1rem] hidden h-32 w-[min(42rem,60vw)] opacity-75 lg:block" />
             <p className="relative font-mono text-md font-medium">LET&apos;S CONNECT</p>
             <h1 className="relative mt-9.5 max-w-2xl font-sans text-[clamp(2.25rem,4vw,3.4rem)] font-medium leading-tight tracking-tighter">
               Have a project
