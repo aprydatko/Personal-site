@@ -28,11 +28,11 @@ const codeLines = [
 export default function Home() {
   return (
     <main id="main-content" className="overflow-clip" tabIndex={-1}>
-      <InteractivePattern
-        data-home-pattern
-        className="home-interactive-pattern top-0 right-0 hidden h-[78vh] w-[62%] text-primary opacity-25 md:block"
-      />
       <HomeMotion>
+        <InteractivePattern
+          data-home-pattern
+          className="home-interactive-pattern top-0 right-0 hidden h-[78vh] w-[62%] text-primary opacity-25 md:block"
+        />
         <Container className="relative">
           <section id="hero" data-home-hero className="home-hero">
             <div className="relative z-10 min-w-0">
