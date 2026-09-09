@@ -23,6 +23,10 @@ export const metadata: Metadata = {
   applicationName: 'Arthur Prydatko Portfolio',
   authors: [{ name: 'Arthur Prydatko' }],
   creator: 'Arthur Prydatko',
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+  },
   openGraph: {
     type: 'website',
     title: 'Arthur Prydatko — Fullstack Developer',

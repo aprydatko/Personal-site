@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Arthur Prydatko</title>
+  <rect width="64" height="64" rx="16" fill="#181b1a"/>
+  <path d="M16 48 28.8 16h6.4L48 48h-7.2l-2.7-7.8H25.1L22.6 48H16Zm11.2-14h8.7l-4.4-12.8L27.2 34Z" fill="#84cbb0"/>
+  <path d="M43 48h5v-5h-5v5Z" fill="#fafaf9"/>
+</svg>
