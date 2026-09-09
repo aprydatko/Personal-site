@@ -51,7 +51,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       className={`${manrope.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="data-theme" defaultTheme="light" enableSystem={false}>
           <a
             href="#main-content"
             className="fixed left-4 top-4 z-50 -translate-y-24 bg-foreground px-5 py-3 font-mono text-sm text-background transition-transform focus:translate-y-0"
