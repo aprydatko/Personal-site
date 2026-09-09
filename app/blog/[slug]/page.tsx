@@ -10,7 +10,29 @@ export const generateStaticParams = async () =>
   (await getBlogPosts()).map(({ slug }) => ({ slug }));
 export const generateMetadata = async ({ params }: BlogPostPageProps): Promise<Metadata> => {
   const post = await getBlogPost((await params).slug);
-  return post ? { title: `${post.title} — Arthur Prydatko`, description: post.description } : {};
+  if (!post) return {};
+
+  const title = `${post.title} — Arthur Prydatko`;
+
+  return {
+    title,
+    description: post.description,
+    alternates: { canonical: `/blog/${post.slug}` },
+    openGraph: {
+      type: 'article',
+      title,
+      description: post.description,
+      url: `/blog/${post.slug}`,
+      siteName: 'Arthur Prydatko Portfolio',
+      publishedTime: post.date,
+      authors: ['Arthur Prydatko'],
+    },
+    twitter: {
+      card: 'summary',
+      title,
+      description: post.description,
+    },
+  };
 };
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {

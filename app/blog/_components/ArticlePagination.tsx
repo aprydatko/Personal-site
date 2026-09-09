@@ -11,6 +11,9 @@ type ArticlePaginationProps = {
 
 const dotIndexes = Array.from({ length: 9 }, (_, index) => index);
 
+const shortenTitle = (title: string, maxLength = 38) =>
+  title.length > maxLength ? `${title.slice(0, maxLength).trimEnd()}...` : title;
+
 const ArticleGridIcon = () => (
   <span className="grid grid-cols-3 gap-[3px]" aria-hidden="true">
     {dotIndexes.map((index) => (
@@ -39,12 +42,12 @@ const ArticleLinkCard = ({
       {isPrevious && (
         <Icon className="size-4 shrink-0 transition-transform group-hover:-translate-x-1" />
       )}
-      <span className="max-w-44">
+      <span className="min-w-0 max-w-52">
         <span className="block text-[10px] leading-4 text-muted">
           {isPrevious ? 'Previous article' : 'Next article'}
         </span>
-        <span className="mt-1 block text-[14px] font-medium leading-5 tracking-wider text-foreground">
-          {article.title}
+        <span className="mt-1 block max-w-52 text-xs font-medium leading-5 tracking-normal text-foreground">
+          {shortenTitle(article.title)}
         </span>
       </span>
       {!isPrevious && (
