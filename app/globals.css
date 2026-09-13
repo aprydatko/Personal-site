@@ -227,6 +227,13 @@ body {
   opacity: 0.3;
   mask-image: linear-gradient(to right, transparent, black);
 }
+.blog-category-tabs {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.blog-category-tabs::-webkit-scrollbar {
+  display: none;
+}
 @media (max-width: 767px) {
   .home-hero {
     grid-template-columns: minmax(0, 1fr);

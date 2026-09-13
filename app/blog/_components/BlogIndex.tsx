@@ -33,9 +33,9 @@ export const BlogIndex = ({ posts }: BlogIndexProps) => {
             setCategory(value);
             setLimit(6);
           }}
-          className="min-w-0 overflow-visible"
+          className="blog-category-tabs min-w-0 flex-1 overflow-x-auto overflow-y-hidden"
         >
-          <TabsList className="flex-wrap gap-x-[clamp(1.2rem,4vw,4rem)] gap-y-0">
+          <TabsList className="flex-nowrap gap-x-[clamp(1.2rem,2.5vw,2.5rem)] gap-y-0">
             {categories.map((item) => (
               <TabsTrigger key={item} value={item} className="py-5 text-xs sm:text-sm">
                 {item}
