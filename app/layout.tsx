@@ -1,5 +1,6 @@
 import { Header } from '@/app/components/layout/Header';
 import { ThemeProvider } from '@/app/components/layout/ThemeProvider';
+import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
 import { JetBrains_Mono, Manrope } from 'next/font/google';
 import { Footer } from './components/layout/Footer';
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
           <PageMotion>{children}</PageMotion>
           <Footer />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
