@@ -4,8 +4,8 @@ import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
 import { JetBrains_Mono, Manrope } from 'next/font/google';
 import { Footer } from './components/layout/Footer';
-import './globals.css';
 import { PageMotion } from './components/motion/PageMotion';
+import './globals.css';
 
 const manrope = Manrope({
   variable: '--font-manrope',
@@ -51,6 +51,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       suppressHydrationWarning
       className={`${manrope.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
+      <meta name="google-site-verification" content="-U32znaTof3vFIuvSOj6TB9m5wkwWW2iMU1JeKSpkRk" />
       <body className="flex min-h-full flex-col">
         <ThemeProvider attribute="data-theme" defaultTheme="light" enableSystem={false}>
           <a
