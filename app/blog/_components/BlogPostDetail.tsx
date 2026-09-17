@@ -21,7 +21,7 @@ const BlogPostHeader = ({ post }: { post: BlogPost }) => (
       <span className="mx-2">•</span> {post.readingTime} <span className="mx-2">•</span>{' '}
       {post.category}
     </p>
-    <h1 className="mt-5 max-w-4xl font-sans text-[clamp(2.2rem,5vw,3.2rem)] font-medium leading-tight tracking-tight">
+    <h1 className="mt-5 max-w-4xl font-mono text-[clamp(2.2rem,5vw,3rem)] font-medium leading-tight tracking-tight">
       {post.title}
       <span className="text-primary opacity-60">.</span>
     </h1>
@@ -43,7 +43,7 @@ export const BlogPostDetail = ({ post, previousPost, nextPost }: BlogPostDetailP
     <Container className="py-8 sm:py-10">
       <Link
         href="/blog"
-        className="inline-flex items-center gap-2 font-mono font-medium text-sm text-muted tracking-tight transition-colors hover:text-foreground"
+        className="inline-flex items-center gap-2 font-mono font-semibild text-sm text-muted tracking-tight transition-colors hover:text-foreground"
       >
         <ArrowLeft className="size-4" /> Back to blog
       </Link>

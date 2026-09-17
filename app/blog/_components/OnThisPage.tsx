@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { getHeadingId } from '@/lib/content/heading-id';
 import type { BlogPost } from '@/lib/content';
+import { getHeadingId } from '@/lib/content/heading-id';
+import { useEffect, useState } from 'react';
 import { ArticleShare } from './ArticleShare';
 
 export const OnThisPage = ({ headings }: Pick<BlogPost, 'headings'>) => {
@@ -31,20 +31,23 @@ export const OnThisPage = ({ headings }: Pick<BlogPost, 'headings'>) => {
 
   return (
     <aside className="hidden w-full lg:sticky lg:top-28 lg:self-start lg:block">
-      <p className="mt-3 font-mono text-sm font-semibold text-muted">ON THIS PAGE</p>
-      <ol className="mt-8 space-y-5 font-mono text-base font-medium leading-6 text-muted-strong">
+      <p className="mt-3 font-mono text-xs font-semibold text-muted">ON THIS PAGE</p>
+      <ol className="mt-8 space-y-4 text-sm font-medium leading-6 text-muted-strong">
         {headings.map((heading, index) => {
           const id = ids[index];
           const active = id === activeId;
           return (
-            <li key={id}>
+            <li key={id} className="grid grid-cols-[2rem_minmax(0,1fr)] gap-1">
+              <span className={active ? 'text-primary' : undefined} aria-hidden="true">
+                {index + 1}.
+              </span>
               <a
                 className={`transition-colors hover:text-primary ${active ? 'text-primary' : ''}`}
                 aria-current={active ? 'location' : undefined}
                 href={`#${id}`}
                 onClick={() => setActiveId(id)}
               >
-                {index + 1}. {heading}
+                {heading}
               </a>
             </li>
           );

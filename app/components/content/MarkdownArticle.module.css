@@ -14,7 +14,7 @@
 .content h2,
 .content h3 {
   color: var(--foreground);
-  font-family: var(--font-manrope);
+  font-family: var(--font-mono);
   font-weight: 600;
   line-height: 1.25;
 }
